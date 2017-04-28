@@ -22,35 +22,16 @@
 </div>
 @endif
 
-@can('Event')
+@can('Talk')
 <div class="container">
+
+	@if(isset($talks))	
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<div class="panel panel-primary">
 				<div class="panel-heading">
-					<strong><i class="fa fa-users" aria-hidden="true"></i> Gerenciar Eventos</strong> 
-					  <span class="pull-right"><a class="btn btn-success btn-sm" href="{{ route('event.create') }}"> <strong><i
+					<strong><i class="fa fa-microphone" aria-hidden="true"></i> Controle de palestras</strong><span class="pull-right"><a class="btn btn-success btn-sm" href="{{ route('talk.create') }}"> <strong><i
 						    class="fa fa-plus" aria-hidden="true"></i> Incluir</strong></a></span>
-				</div>
-				
-				<div class="panel-body">
-
-				{!! Form::open(['route' => 'event.index', 'method' => 'GET']) !!}
-										
-						@include('event.partial.pform')
-
-                {!! Form::close() !!}
-                    
- 				</div>
-			</div>
-		</div>
-	</div>
-	@if(isset($events))	
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
-			<div class="panel panel-primary">
-				<div class="panel-heading">
-					<strong><i class="fa fa-list-alt" aria-hidden="true"></i> Listagem de eventos</strong> 
 				</div>
 				
 				<div class="panel-body">
@@ -59,22 +40,20 @@
 
 						<table class="table table-hover table-responsive table-bordered table-striped">
 							<tr class="active">
-								<th>Nome</th>
-								<th class="text-center">Início</th>
-								<th class="text-center">Fim</th>
+								<th>Evento</th>
+								<th class="text-center">Título</th>
 								<th class="text-center">Encerramento CFP</th>
 								<th colspan="2" class="text-center">Ação</th>
 							</tr>
-							@foreach ($events as $ev)
+							@foreach ($talks as $tk)
 							<tr>
-								<td>{{ $ev->name}}</td>
-								<td class="text-center">{{ $ev->present()->datainicial}}</td>
-								<td class="text-center">{{ $ev->present()->datafinal}}</td>
-								<td class="text-center">{{ $ev->present()->datafimdocfp}}</td>
+								<td>{{ $tk->event->name}}</td>
+								<td class="text-center">{{ $tk->titulo}}</td>
+								<td class="text-center">{{ $tk->present()->event->datafimdocfp}}</td>
 								<td class="text-center"><a class="btn btn-warning btn-sm"
-									href="{{ route('event.edit',$ev->id) }}"> Editar</a></td>
+									href="{{ route('talk.edit',$tk->id) }}"> Editar</a></td>
 								<td class="text-center">
-								 {{ Form::open(array('url' => 'event/'.$ev->id, 'class' =>'text-center')) }} 
+								 {{ Form::open(array('url' => 'talk/'.$tk->id, 'class' =>'text-center')) }} 
 									{{ Form::hidden('_method', 'DELETE') }} 
 									{{ Form::submit('Excluir', array('class' => 'btn btn-danger btn-sm')) }} 
 								 {{ Form::close() }}
@@ -83,7 +62,7 @@
 							@endforeach
 						</table>
 						
-						{!! $events->render() !!}
+						{!! $talks->render() !!}
 
 					</div>
 			

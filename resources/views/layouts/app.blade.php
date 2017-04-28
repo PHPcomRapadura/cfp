@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,6 +12,9 @@
 
     <!-- Styles -->
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+<script src="https://use.fontawesome.com/6c531641d9.js"></script>
+
 <link href="/css/datepicker.css" rel="stylesheet">
 
         <style>
@@ -88,7 +91,6 @@
         @yield('content')
     </div>
 
-     <script src="https://use.fontawesome.com/6c531641d9.js"></script>
     <!-- Scripts -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 

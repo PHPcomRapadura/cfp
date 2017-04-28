@@ -84,7 +84,10 @@ class EventController extends Controller
      */
     public function edit($id)
     {
-        //
+        $event = Event::find($id);
+
+        return view('event.edit')
+             ->with(compact('event'));
     }
 
     /**
@@ -96,7 +99,18 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+     $request['datainicial'] = \Carbon\Carbon::createFromFormat('d/m/Y', $request['datainicial']);
+     $request['datafinal'] = \Carbon\Carbon::createFromFormat('d/m/Y', $request['datafinal']);
+     $request['datafimdocfp'] = \Carbon\Carbon::createFromFormat('d/m/Y', $request['datafimdocfp']);
+
+        $event = Event::find($id);
+        
+        $event->fill($request->all())->save();
+    
+        return redirect()
+               ->route('event.edit', $id)
+               ->with(['success'=> 'Dados alterados com sucesso!']);
+        
     }
 
     /**

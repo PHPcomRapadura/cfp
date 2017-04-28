@@ -10,5 +10,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 
-//EMPRESA
+//EVENTO
 Route::resource('/event','EventController');
+
+//EVENTO
+Route::resource('/talk','TalkController');

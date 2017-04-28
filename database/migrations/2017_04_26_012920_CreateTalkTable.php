@@ -16,7 +16,7 @@ class CreateTalkTable extends Migration
         Schema::create('talks', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
-            $table->integer('talk_id');
+            $table->integer('event_id');
             $table->string('titulo',150);
             $table->text('descricao');
             $table->timestamps();

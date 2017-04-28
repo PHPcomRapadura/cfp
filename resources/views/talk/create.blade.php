@@ -23,24 +23,21 @@
 @endif
 
 
-@can('Event')
+@can('Talk')
 
 <div class="container">
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<div class="panel panel-primary">
 				<div class="panel-heading">
-					<strong><i class="fa fa-users" aria-hidden="true"></i>
-						Editar Evento</strong>
+					<strong><i class="fa fa-microphone" aria-hidden="true"></i>
+						Submeta a sua palestra</strong>
 
 				</div>
 				<div class="panel-body">
+				{!! Form::open(['route' => 'talk.store','method' => 'POST']) !!} 
 
-				{!! Form::model($event,['route' => ['event.update', $event->id]]) !!} 
-
-					<input type="hidden" name="_method" value="PUT">
-
-					@include('event.partial.eform')
+					@include('talk.partial.form')
 
 				{!! Form::close() !!}</div>
 			</div>

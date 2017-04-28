@@ -18,7 +18,7 @@
               
                     <div class="caption">
                         <h4><strong><i class="fa fa-microphone" aria-hidden="true"></i> Submeta a sua palestra</strong></h4>
-                       <p><a href="{{ url('/') }}" class="btn btn-primary btn-sm" role="button"><i class="fa fa-sign-in" aria-hidden="true"></i> Acessar</a></p>
+                       <p><a href="{{ url('/talk') }}" class="btn btn-primary btn-sm" role="button"><i class="fa fa-sign-in" aria-hidden="true"></i> Acessar</a></p>
                     </div>
             </div>
         </div>

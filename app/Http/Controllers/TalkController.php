@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Talk;
+use App\User;
+use App\Event;
+use Auth;
+
 
 class TalkController extends Controller
 {
@@ -11,9 +16,15 @@ class TalkController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $id = Auth::user()->id;
+
+        $talks = Talk::where('user_id',$id)
+                  ->paginate(10);
+                  
+            return view('talk.list',compact('talks'))
+                 ->with('i', ($request->input('page', 1) - 1) * 10);
     }
 
     /**
@@ -23,7 +34,10 @@ class TalkController extends Controller
      */
     public function create()
     {
-        //
+        //events = Event::where('datafimdocfp','<=', date('Y-m-d'))->pluck('id','name');
+        $events = Event::all()->pluck('name','id');
+
+        return view('talk.create',compact('events'));
     }
 
     /**

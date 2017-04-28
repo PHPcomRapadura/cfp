@@ -15,5 +15,4 @@ class Event extends Model
     protected $presenter = EventPresenter::class;
     
     protected $dates = ['datainicial', 'datafinal', 'datafimdocfp'];
-    
 }
