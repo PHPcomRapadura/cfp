@@ -3,14 +3,14 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-10 col-md-offset-1">
+        <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-primary">
                 <div class="panel-heading"><strong>Seja bem-vindo Sr.(a) {{ Auth::user()->apelido }}</strong></div>
 
                 <div class="panel-body">
                     
     @can('Talk')
-        <div class="col-md-4">
+        <div class="col-md-6">
 
             <div class="thumbnail text-center">
 
@@ -25,7 +25,7 @@
     @endcan    
 
     @can('Perfil')
-        <div class="col-md-4">
+        <div class="col-md-6">
 
             <div class="thumbnail text-center">
 
@@ -40,7 +40,7 @@
     @endcan
 
     @can('Event')
-        <div class="col-md-4">
+        <div class="col-md-6">
 
             <div class="thumbnail text-center">
 

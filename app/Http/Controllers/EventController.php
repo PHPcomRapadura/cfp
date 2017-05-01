@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Event;
+use App\Http\Requests\TalkFormRequest;
 
 class EventController extends Controller
 {
@@ -52,7 +53,7 @@ class EventController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EventFormRequest $request)
     {
      $request['datainicial'] = \Carbon\Carbon::createFromFormat('d/m/Y', $request['datainicial']);
      $request['datafinal'] = \Carbon\Carbon::createFromFormat('d/m/Y', $request['datafinal']);
@@ -97,7 +98,7 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EventFormRequest $request, $id)
     {
      $request['datainicial'] = \Carbon\Carbon::createFromFormat('d/m/Y', $request['datainicial']);
      $request['datafinal'] = \Carbon\Carbon::createFromFormat('d/m/Y', $request['datafinal']);

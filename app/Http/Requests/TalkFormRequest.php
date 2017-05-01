@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class EventFormRequest extends FormRequest
+class TalkFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -16,7 +16,8 @@ class EventFormRequest extends FormRequest
         return \Auth::check();
     }
 
-        /**
+
+            /**
      * Get the validation rules that apply to the request.
      *
      * @return array
@@ -24,10 +25,9 @@ class EventFormRequest extends FormRequest
     public function rules()
     {
         return [       
-            'name' => 'required|max:150',
-            'datainicial' => 'required',
-            'datafinal' => 'required',
-            'datafimdocfp' => 'required',
+            'titulo' => 'required|max:150',
+            'event_id' => 'required',
+            'descricao' => 'required|max:400',
         ];
     }
 
@@ -40,10 +40,9 @@ class EventFormRequest extends FormRequest
     {
         return [   
         
-            'name.required' => 'O Nome do evento é obrigatório!',
-            'datainicial.required' => 'A data de início do evento é obrigatória!',
-            'datafinal.required' => 'A data do fim do evento é obrigatória!',
-            'datafimdocfp.required' => 'A data do fim do cfp é obrigatória!',
+            'titulo.required' => 'O Titulo da palestra é obrigatório!',
+            'event_id.required' => 'Por favor selecione um evento!',
+            'descricao.required' => 'A descrição da palestra é obrigatória!',
         ];
     }
 }

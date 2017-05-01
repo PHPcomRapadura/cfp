@@ -13,10 +13,10 @@
 						  </div>
 						 </div>
 						 
-						 <div class="col-md-4">
+						 <div class="col-md-12">
 						  <div class="form-group">
 						   {!! Form::label('descricao','Descrição:',array('class' => 'control-label')) !!}
-						   {!! Form::textarea('descricao', null, ['class' => 'form-control','cols'=>'50']) !!}
+						   {!! Form::textarea('descricao', null, ['class' => 'form-control','rows' => 5, 'cols' => 200,'maxlength' => 400]) !!}
 						  </div>
 						 </div>
 
@@ -25,7 +25,7 @@
 						  <div class="form-group">
 						     <button type="submit" class="btn btn-success btn-sm"><strong><i class="fa fa-floppy-o" aria-hidden="true"></i>
 						      Salvar</strong></button>
-						     <a class="btn btn-warning btn-sm" href="{{ url('/event') }}"> <strong><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Voltar</strong></a>
+						     <a class="btn btn-warning btn-sm" href="{{ url('/talk') }}"> <strong><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Voltar</strong></a>
 						  </div>
 						 </div>
 						 

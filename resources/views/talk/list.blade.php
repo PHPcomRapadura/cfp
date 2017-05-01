@@ -42,14 +42,12 @@
 							<tr class="active">
 								<th>Evento</th>
 								<th class="text-center">Título</th>
-								<th class="text-center">Encerramento CFP</th>
 								<th colspan="2" class="text-center">Ação</th>
 							</tr>
 							@foreach ($talks as $tk)
 							<tr>
 								<td>{{ $tk->event->name}}</td>
 								<td class="text-center">{{ $tk->titulo}}</td>
-								<td class="text-center">{{ $tk->present()->event->datafimdocfp}}</td>
 								<td class="text-center"><a class="btn btn-warning btn-sm"
 									href="{{ route('talk.edit',$tk->id) }}"> Editar</a></td>
 								<td class="text-center">
