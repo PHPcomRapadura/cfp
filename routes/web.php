@@ -13,5 +13,8 @@ Route::get('/home', 'HomeController@index');
 //EVENTO
 Route::resource('/event','EventController');
 
-//EVENTO
+//TALK
 Route::resource('/talk','TalkController');
+
+//USER
+Route::resource('/user','UserController');

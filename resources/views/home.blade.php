@@ -33,7 +33,7 @@
               
                     <div class="caption">
                         <h4><strong><i class="fa fa-edit" aria-hidden="true"></i> Editar seu perfil</strong></h4>
-                        <p><a href="{{ url('/') }}" class="btn btn-primary btn-sm" role="button"><i class="fa fa-sign-in" aria-hidden="true"></i> Acessar</a></p>
+                        <p><a href="{{ route('user.edit', Auth::user()->id) }}" class="btn btn-primary btn-sm" role="button"><i class="fa fa-sign-in" aria-hidden="true"></i> Acessar</a></p>
                     </div>
             </div>
         </div>
