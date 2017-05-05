@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\File;
+use App\Role_User;
 
 class RegisterController extends Controller
 {
@@ -55,7 +56,7 @@ class RegisterController extends Controller
             'git' => 'max:150',
             'email' => 'required|email|max:150|unique:users',
             'password' => 'required|min:6|confirmed',
-            'foto' => 'required|max:150',
+            'foto' => 'image|mimes:jpg,png|dimensions:min_width=200,max_width=300,min_height=200,max_height=300',
             'cidade' => 'required|max:80',
             'estado' => 'required|max:60',
             'biografia' => 'required|max:250',
@@ -72,7 +73,7 @@ class RegisterController extends Controller
     {
         $destinationPath = 'uploads';
         $arquivo = Input::file('foto');
-        $arquivo->move($destinationPath, $arquivo->getClientOriginalName());
+        $arquivo->move($destinationPath, $arquivo);
 
         return User::create([
             'name' => $data['name'],

@@ -1,4 +1,17 @@
 						
+						<div class="col-md-12">
+						  <div class="form-group">						
+							<img class="img-responsive" src="{{ asset('uploads/'.$user->foto) }}">
+						  </div>
+						</div>
+
+						 <div class="col-md-4">
+						  <div class="form-group">
+						     {!! Form::label('apelido','Apelido:',array('class' => 'control-label'))!!}
+						   	 {!! Form::text('apelido', null, ['class' => 'form-control']) !!}
+						  </div>
+						 </div>
+
 						<div class="col-md-8">
 						  <div class="form-group">
 						   {!! Form::label('name','Nome do Evento:',array('class' => 'control-label')) !!}
@@ -6,12 +19,6 @@
 						  </div>
 						</div>
 						
-						 <div class="col-md-4">
-						  <div class="form-group">
-						     {!! Form::label('apelido','Apelido:',array('class' => 'control-label'))!!}
-						   	 {!! Form::text('apelido', null, ['class' => 'form-control']) !!}
-						  </div>
-						 </div>
 						 
 						 <div class="col-md-6">
 						  <div class="form-group">
@@ -50,7 +57,7 @@
 
 			  			<div class="col-md-6">
 						  <div class="form-group">
-						     {!! Form::label('avatar','Avatar/Foto:',array('class' => 'control-label')) !!}
+						     {!! Form::label('avatar','Trocar Avatar/Foto:',array('class' => 'control-label')) !!}
 						     {!! Form::file('avatar') !!}
 						  </div>
 						 </div>
