@@ -1,16 +1,11 @@
 						
 						<div class="col-md-12">
+						<div class="col-md-4 col-md-offset-4">
 						  <div class="form-group">						
 							<img class="img-responsive" src="{{ asset('uploads/'.$user->foto) }}">
 						  </div>
-						</div>
-
-						 <div class="col-md-4">
-						  <div class="form-group">
-						     {!! Form::label('apelido','Apelido:',array('class' => 'control-label'))!!}
-						   	 {!! Form::text('apelido', null, ['class' => 'form-control']) !!}
 						  </div>
-						 </div>
+						</div>
 
 						<div class="col-md-8">
 						  <div class="form-group">
@@ -19,6 +14,12 @@
 						  </div>
 						</div>
 						
+						 <div class="col-md-4">
+						  <div class="form-group">
+						     {!! Form::label('apelido','Apelido:',array('class' => 'control-label'))!!}
+						   	 {!! Form::text('apelido', null, ['class' => 'form-control']) !!}
+						  </div>
+						 </div>
 						 
 						 <div class="col-md-6">
 						  <div class="form-group">
@@ -89,7 +90,7 @@
 						  <div class="form-group">
 						     <button type="submit" class="btn btn-success btn-sm"><strong><i class="fa fa-floppy-o" aria-hidden="true"></i>
 						      Salvar</strong></button>
-						     <a class="btn btn-warning btn-sm" href="{{ url('/event') }}"> <strong><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Voltar</strong></a>
+						     <a class="btn btn-warning btn-sm" href="{{ url('/home') }}"> <strong><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Voltar</strong></a>
 						  </div>
 						 </div>
 						 

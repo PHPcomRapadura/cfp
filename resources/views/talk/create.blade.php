@@ -31,7 +31,7 @@
 			<div class="panel panel-primary">
 				<div class="panel-heading">
 					<strong><i class="fa fa-microphone" aria-hidden="true"></i>
-						Submeta a sua palestra</strong>
+						Submeta sua palestra</strong>
 
 				</div>
 				<div class="panel-body">
