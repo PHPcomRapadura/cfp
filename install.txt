@@ -1,0 +1,27 @@
+1 - clone o projeto;
+
+2 - crie um banco de dados mysql collation utf8_unicode_ci;
+
+3 - crie um arquivo na raiz do projeto .env e preencha com as informações de conexao com o banco de dados;
+
+4 - através do terminal na pasta do projeto rode o comando composer install;
+
+5 - altere o arquivo cfp/app/providers/AuthServiceProvider.php
+
+- comente o corpo do método boot(GateContract $gate); 
+
+- insira esse codigo no fim do mesmo metodo: 
+	
+   parent::registerPolicies($gate);
+
+6 - rode o comando: php artisan key:generate;
+
+7 - rode o comando: php artisan migrate;
+
+8 - descomente as linhas no método boot(GateContract $gate);
+
+9 - rode o comando: php artisan server
+
+10 - abra o navegador: http://localhost:8000
+
+Observação: pode ocorrer um erro de cannot driver, aí é só vc instalar o driver do mysql na sua maquina.
