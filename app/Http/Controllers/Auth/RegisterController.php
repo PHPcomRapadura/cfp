@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\File;
-use App\Role_User;
 
 class RegisterController extends Controller
 {
@@ -50,17 +49,30 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
-            'name' => 'required|max:150',
-            'apelido' => 'required|max:60',
-            'git' => 'max:150',
-            'email' => 'required|email|max:150|unique:users',
-            'password' => 'required|min:6|confirmed',
-            'foto' => 'required|image|mimes:jpg,png|dimensions:min_width=200,max_width=400,min_height=200,max_height=400',
-            'cidade' => 'required|max:80',
-            'estado' => 'required|max:60',
-            'biografia' => 'required|max:250',
-        ]);
+        return Validator::make($data, 
+            ['name' => 'required|max:150',
+             'apelido' => 'required|max:60',
+             'git' => 'max:150',
+             'email' => 'required|email|max:150|unique:users',
+             'password' => 'required|min:6|confirmed',
+             'foto' => 'required|image|mimes:jpg,png,jpeg|dimensions:min_width=200,max_width=400,min_height=200,max_height=400',
+             'cidade' => 'required|max:80',
+             'estado' => 'required|max:60',
+             'biografia' => 'required|max:250'
+            ],
+
+            ['required' => 'O campo :attribute é obrigatório'],
+
+            [ 'name' => 'Nome', 
+              'apelido' => 'Apelido',
+              'git' => 'Github',
+              'email' => 'Email',
+              'foto' => 'Avatar/Foto',
+              'cidade' => 'Cidade',
+              'estado' => 'Estado',
+              'biografia' => 'biografia',
+              ]
+        );
     }
 
     /**

@@ -1,6 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
+
+<!-- mensagens de error -->
+@if(count($errors->all()) > 0)
+<div class="alert alert-danger col-md-8 col-md-offset-2">
+    <ul>
+        @foreach($errors->all() as $error)
+        <li><i class="fa fa-hand-paper-o" aria-hidden="true"></i> {{$error}}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
+
+
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
@@ -15,12 +28,6 @@ Registre-se</strong></div>
                           <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="name">Nome:</label>
                                 <input id="name" type="text" class="form-control" name="name" maxlength="150" value="{{ old('name') }}" required autofocus>
-
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
                           </div>
                         </div>
 
@@ -29,12 +36,6 @@ Registre-se</strong></div>
                           <div class="form-group{{ $errors->has('apelido') ? ' has-error' : '' }}">
                             <label for="name">Apelido:</label>
                                 <input id="apelido" type="text" class="form-control" name="apelido" maxlength="60" value="{{ old('apelido') }}" required>
-
-                                @if ($errors->has('apelido'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('apelido') }}</strong>
-                                    </span>
-                                @endif
                           </div>
                         </div>
 
@@ -44,12 +45,6 @@ Registre-se</strong></div>
                           <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="name">E-mail:</label>
                                 <input id="email" type="text" class="form-control" name="email" maxlength="150" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
                           </div>
                         </div>
 
@@ -58,12 +53,6 @@ Registre-se</strong></div>
                           <div class="form-group{{ $errors->has('git') ? ' has-error' : '' }}">
                             <label for="name">Github:</label>
                                 <input id="git" type="text" class="form-control" name="git" maxlength="150" value="{{ old('git') }}">
-
-                                @if ($errors->has('git'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('git') }}</strong>
-                                    </span>
-                                @endif
                           </div>
                         </div>
 
@@ -72,12 +61,6 @@ Registre-se</strong></div>
                           <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="name">Senha:</label>
                                 <input id="password" type="password"  class="form-control" name="password" maxlength="100" value="{{ old('password') }}" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
                           </div>
                         </div>
 
@@ -91,8 +74,8 @@ Registre-se</strong></div>
 
                         <div class="col-md-6">
                             <div class="form-group">
-                            <label for="foto">Avatar/Foto:</label>
-                                <input id="foto" type="file" class="form-control" name="foto" required="required">
+                            <label for="foto">Avatar/Foto: </label>
+                                <input id="foto" type="file" class="form-control" title="Tamanho min: 200px e max:400px" name="foto" required="required">
                             </div>
                         </div>
 
@@ -100,12 +83,6 @@ Registre-se</strong></div>
                           <div class="form-group{{ $errors->has('cidade') ? ' has-error' : '' }}">
                             <label for="name">Cidade:</label>
                                 <input id="cidade" type="text" class="form-control" name="cidade" maxlength="80" value="{{ old('cidade') }}" required>
-
-                                @if ($errors->has('cidade'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('cidade') }}</strong>
-                                    </span>
-                                @endif
                           </div>
                         </div>
 
@@ -113,12 +90,6 @@ Registre-se</strong></div>
                           <div class="form-group{{ $errors->has('estado') ? ' has-error' : '' }}">
                             <label for="name">Estado:</label>
                                 <input id="estado" type="text" class="form-control" name="estado" maxlength="60" value="{{ old('estado') }}" required>
-
-                                @if ($errors->has('estado'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('estado') }}</strong>
-                                    </span>
-                                @endif
                           </div>
                         </div>
 

@@ -1,6 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
+
+<!-- mensagens de error -->
+@if(count($errors->all()) > 0)
+<div class="alert alert-danger col-md-8 col-md-offset-2">
+    <ul>
+        @foreach($errors->all() as $error)
+        <li><i class="fa fa-hand-paper-o" aria-hidden="true"></i> {{$error}}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
+
 <div class="container">
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
@@ -15,12 +27,6 @@ Autenticação de Usuários</strong></div>
                           <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="name">E-mail:</label>
                                 <input id="email" type="text" class="form-control" name="email" maxlength="150" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
                           </div>
                         </div>
 
@@ -29,11 +35,6 @@ Autenticação de Usuários</strong></div>
                             <label for="name">Senha:</label>
                                 <input id="password" type="password"  class="form-control" name="password" maxlength="100" value="{{ old('password') }}" required>
 
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
                           </div>
 
                        <div class="col-md-12">
