@@ -5,9 +5,12 @@ namespace App\Http\Controllers\Auth;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\File;
+use App\Role_User;
 
 class RegisterController extends Controller
 {
@@ -101,4 +104,31 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+     /**
+     * Handle a registration request for the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        $user_id = User::max('id');
+
+        $role_user = new Role_User;
+        $role_user->user_id = $user_id;
+        $role_user->role_id = 2;
+
+        $role_user->save();
+
+        $this->guard()->login($user);
+
+        return $this->registered($request, $user)
+            ?: redirect($this->redirectPath());
+    }
+
 }
