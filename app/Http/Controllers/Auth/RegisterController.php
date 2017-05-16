@@ -58,7 +58,7 @@ class RegisterController extends Controller
              'git' => 'max:150',
              'email' => 'required|email|max:150|unique:users',
              'password' => 'required|min:6|confirmed',
-             'foto' => 'required|image|mimes:jpg,png,jpeg|dimensions:min_width=200,max_width=400,min_height=200,max_height=400',
+             'foto' => 'required|image|mimes:jpg,png,jpeg',
              'cidade' => 'required|max:80',
              'estado' => 'required|max:60',
              'biografia' => 'required|max:250'

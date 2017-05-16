@@ -53,7 +53,15 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        &nbsp;
+                        @can('users-view')
+                            <li><a href="">Usuários</a></li>
+                        @endcan
+                        @can('events-view')
+                            <li><a href=""> Evento</a></li>
+                        @endcan
+                        @can('talks-view')
+                            <li><a href=""> Palestras</a></li>
+                        @endcan
                     </ul>
 
                     <!-- Right Side Of Navbar -->

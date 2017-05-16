@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Permission;
 use Closure;
 use App\User;
 use Illuminate\Contracts\Auth\Access\Gate as GateContract;
@@ -30,17 +31,24 @@ class AfterLoginLoadUserPermissions
      * @return mixed
      */
     public function handle($request, Closure $next)
-    {   
-        $permissions = \App\Permission::with('roles')->get();
-         
-        foreach ($permissions as $permission) {
-            $this->gate->define($permission->nome, function(User $user) use ($permission){
+    {
+
+        // Obtem todas as permissões e para cada permissão, verifica se a permissão é permitida ao usuário
+        $permissions = Permission::with('roles')->get();
+
+        foreach ($permissions as $permission)
+        {
+            $permission_define = $this->gate->define($permission->slug , function (User $user) use ($permission)
+            {
                 return $user->hasPermission($permission);
             });
         }
-
+        //Se ele é super Administrador pode fazer tudo
+//        dd(\Auth::user()->isSuperAdmin());
         $this->gate->before(function(User $user, $ability){
-            return $user->hasAnyRoles('admin');
+            if ($user->isSuperAdmin()) {
+                return true;
+            }
         });
 
         return $next($request);

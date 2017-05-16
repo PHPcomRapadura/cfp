@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Permission;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller

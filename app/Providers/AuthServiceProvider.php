@@ -2,9 +2,12 @@
 
 namespace App\Providers;
 
+use App\Permission;
+use App\User;
 use Illuminate\Contracts\Auth\Access\Gate as GateContract;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
-
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 
 class AuthServiceProvider extends ServiceProvider
@@ -24,8 +27,9 @@ class AuthServiceProvider extends ServiceProvider
      * @param  \Illuminate\Contracts\Auth\Access\Gate  $gate
      * @return void
      */
-    public function boot()
+    public function boot(GateContract $gate)
     {
         $this->registerPolicies();
+
     }
 }

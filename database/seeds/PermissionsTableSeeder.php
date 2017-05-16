@@ -1,4 +1,6 @@
 <?php
+use App\Permission;
+use App\Permission_role;
 use Illuminate\Support\Collection;
 use Illuminate\Database\Seeder;
 
@@ -16,47 +18,81 @@ class PermissionsTableSeeder extends Seeder
     
     public function run()
     {
-        // Apaga toda as tabelas abaixo
-        DB::table('permissions')->truncate();
-        DB::table('permission_role')->truncate();
+        //Caso queira rodar essa migration novamente , usar o refresh
+//        // Apaga toda as tabelas abaixo
+//        DB::table('permissions')->truncate();
+//        DB::table('permission_role')->truncate();
 
         $this->createPermissions();
-        $this->createPermission_role();          
+        $this->createPermission_role();
     }
 
     private function createPermissions()
     {
         Permission::create([
-            'nome' => 'Perfil', 
+            'slug'=>'users-view',
+            'nome' => 'Usuários',
+            'descricao'  => 'Visualiza todos os cadastro de palestrante',
+        ]);
+        Permission::create([
+            'slug'=>'users-create',
+            'nome' => 'Usuários - Cadastro',
+            'descricao'  => 'Cadastro de palestrante',
+        ]);
+        Permission::create([
+            'slug'=>'users-update',
+            'nome' => 'Usuários - Edição',
             'descricao'  => 'Alterar cadastro de palestrante',
+        ]);
+        Permission::create([
+            'slug'=>'users-delete',
+            'nome' => 'Usuários - Delete',
+            'descricao'  => 'Deletar cadastro de palestrante',
         ]);
         
         Permission::create([
-            'nome' => 'Talk', 
+            'slug'=>'talks-view',
+            'nome' => 'Palestras',
+            'descricao'  => 'Submeter palestras para os eventos',
+        ]);
+        Permission::create([
+            'slug'=>'talks-create',
+            'nome' => 'Talk',
             'descricao'  => 'Submeter palestras para os eventos',
         ]);
         
         Permission::create([
+            'slug'=>'talks-update',
             'nome' => 'Edit talk', 
             'descricao'  => 'Editar Submissão de palestras para os eventos',
         ]);
         
         Permission::create([
+            'slug'=>'talks-delete',
             'nome' => 'Delete talk', 
             'descricao'  => 'Excluir submissão de palestras para os eventos',
         ]);
         
         Permission::create([
-            'nome' => 'Event', 
+            'slug'=>'events-view',
+            'nome' => 'Eventos',
+            'descricao'  => 'Visualizar todos os Eventos',
+        ]);
+
+        Permission::create([
+            'slug'=>'events-create',
+            'nome' => 'Event',
             'descricao'  => 'Incluir novos eventos ADM',
         ]);
-        
+
         Permission::create([
+            'slug'=>'events-update',
             'nome' => 'Edit event', 
             'descricao'  => 'Editar dados dos eventos ADM',
         ]);
         
         Permission::create([
+            'slug'=>'events-delete',
             'nome' => 'Delete event', 
             'descricao'  => 'Excluir eventos ADM',
         ]);
@@ -70,41 +106,21 @@ class PermissionsTableSeeder extends Seeder
     {
 
         Permission_role::create([
-            'permission_id' => 1, 
+            'permission_id' => 3,
             'role_id'  => 2,
         ]);
-
         Permission_role::create([
-            'permission_id' => 2, 
+            'permission_id' => 5,
             'role_id'  => 2,
         ]);
-        
         Permission_role::create([
-            'permission_id' => 3, 
+            'permission_id' => 6,
             'role_id'  => 2,
         ]);
-
         Permission_role::create([
-            'permission_id' => 4, 
+            'permission_id' => 7,
             'role_id'  => 2,
         ]);
-
-        Permission_role::create([
-            'permission_id' => 5, 
-            'role_id'  => 1,
-        ]);
-
-
-        Permission_role::create([
-            'permission_id' => 6, 
-            'role_id'  => 1,
-        ]);
-
-        Permission_role::create([
-            'permission_id' => 7, 
-            'role_id'  => 1,
-        ]);
-
         $this->command->info('Permission_role created');
     }
 }
