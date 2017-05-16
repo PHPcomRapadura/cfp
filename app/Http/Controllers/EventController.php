@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Event;
-use App\Http\Requests\TalkFormRequest;
+use App\Http\Requests\EventFormRequest;
 
 class EventController extends Controller
 {

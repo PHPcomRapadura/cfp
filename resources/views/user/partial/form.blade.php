@@ -39,20 +39,15 @@
 						  <div class="col-md-6">
                           <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="name">Senha:</label>
-                                <input id="password" type="password"  class="form-control" name="password" maxlength="100" value="{{ old('password') }}" required>
+                                <input id="password" type="password"  class="form-control" name="password" maxlength="100" value="{{ old('password') }}" >
 
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
                           </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
                             <label for="password-confirm">Confirme sua Senha:</label>
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
                             </div>
                         </div>
 

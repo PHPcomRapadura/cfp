@@ -22,7 +22,7 @@
 </div>
 @endif
 
-@can('Talk')
+@can('talks-create')
 <div class="container">
 
 	@if(isset($talks))	

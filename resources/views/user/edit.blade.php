@@ -23,7 +23,7 @@
 @endif
 
 
-@can('Perfil')
+@can('users-update')
 
 <div class="container">
 	<div class="row">

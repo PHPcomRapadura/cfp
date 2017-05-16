@@ -37,6 +37,10 @@ para trabalhar com seu banco de dados.
 php artisan migrate
 ```
 
+```
+php artisan db:seed
+
+```
 
 ## Aplicação
 Pronto, a intalação esta concluida para verificar a aplicação, rode o camando abaixo e 

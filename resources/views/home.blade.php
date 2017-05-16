@@ -28,6 +28,27 @@
                             </div>
                         @endcan
 
+                        @can('talks-view')
+                            <div class="col-md-6">
+                                <div class="thumbnail text-center">
+                                    <img src="{{URL::asset('/img/talks.jpg')}}" alt="Talk">
+                                    <div class="caption">
+                                        <h4>
+                                            <strong>
+                                                <i class="fa fa-microphone" aria-hidden="true"></i>
+                                                Visualizar Paslestras Submetidas
+                                            </strong>
+                                        </h4>
+                                        <p>
+                                            <a href="{{ url('/talk') }}" class="btn btn-primary btn-sm" role="button">
+                                                <i class="fa fa-sign-in" aria-hidden="true"></i> Acessar
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        @endcan
+
                             @can('users-update')
                         <div class="col-md-6">
 

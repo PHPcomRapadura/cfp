@@ -23,7 +23,7 @@
 @endif
 
 
-@can('Event')
+@can('events-view')
 
 <div class="container">
 	<div class="row">

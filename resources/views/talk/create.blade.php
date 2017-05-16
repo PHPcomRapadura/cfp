@@ -23,7 +23,7 @@
 @endif
 
 
-@can('Talk')
+@can('talks-create')
 
 <div class="container">
 	<div class="row">

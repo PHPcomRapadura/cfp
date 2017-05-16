@@ -56,11 +56,17 @@
                         @can('users-view')
                             <li><a href="">Usuários</a></li>
                         @endcan
+                        @can('users-update')
+                            <li><a href="{{ route('user.edit', Auth::user()->id) }}">Perfil</a></li>
+                        @endcan
                         @can('events-view')
-                            <li><a href=""> Evento</a></li>
+                            <li><a href="{{ url('/event') }}"> Evento</a></li>
                         @endcan
                         @can('talks-view')
-                            <li><a href=""> Palestras</a></li>
+                            <li><a href="{{ url('/talk') }}"> Palestras</a></li>
+                        @endcan
+                        @can('talks-create')
+                            <li><a href="{{ url('/talk') }}"> Palestras</a></li>
                         @endcan
                     </ul>
 
