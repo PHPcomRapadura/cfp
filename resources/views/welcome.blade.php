@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>{!! $events->name !!}</title>
+        <title>Call For Papers</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -62,6 +62,13 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+            .copyright{
+                font-size: 12px;
+            }
+            #link-color{
+
+                color: #025c98;
+            }
         </style>
     </head>
     <body>
@@ -79,12 +86,20 @@
 
             <div class="content">
                 <div class="title m-b-md">
+                @if(isset($events->name))
                     <strong>{!! $events->name !!}</strong>
                 </div>
-
+                
                 <div class="links">
                   <h2>Submeta a sua palestra até o dia {!! $events->present()->datafimdocfp !!}</h2>
                 </div>
+                @endif
+                
+
+                <div class="col-md-12 text-center">
+                  <p class="copyright">Call For Papers | <a id="link-color" href="http://phpcomrapadura.org" target="_blank">Community PHP com Rapadura</a> | Ceará - Brasil</p>
+                </div>
+
             </div>
         </div>
     </body>

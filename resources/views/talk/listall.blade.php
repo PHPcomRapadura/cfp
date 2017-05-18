@@ -25,16 +25,16 @@
 @can('Event')
 <div class="container">
 	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
+		<div class="col-md-10 col-md-offset-1">
 			<div class="panel panel-primary">
 				<div class="panel-heading">
-					<strong><i class="fa fa-users" aria-hidden="true"></i> Gerenciar Talks</strong> 
+					<strong><i class="fa fa-microphone" aria-hidden="true"></i> Gerenciar Talks</strong> 
 					  
 				</div>
 				
 				<div class="panel-body">
 
-				{!! Form::open(['route' => ['talk.all'], 'method' => 'GET']) !!}
+				{!! Form::open(['route' => 'talks.all', 'method' => 'GET']) !!}
 										
 						@include('talk.partial.pform')
 
@@ -46,7 +46,7 @@
 	</div>
 	@if(isset($talks))	
 	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
+		<div class="col-md-10 col-md-offset-1">
 			<div class="panel panel-primary">
 				<div class="panel-heading">
 					<strong><i class="fa fa-list-alt" aria-hidden="true"></i> Listagem de talks enviadas</strong> 
@@ -59,22 +59,22 @@
 						<table class="table table-hover table-responsive table-bordered table-striped">
 							<tr class="active">
 							    <th>Emissão</th>
-								<th>Apelido</th>
-								<th class="text-center">Palestra</th>
-								<th colspan="2" class="text-center">Ação</th>
+								<th>Palestrante</th>
+								<th>Tema</th>
+								<th colspan="2" class="text-center">Ações</th>
 							</tr>
 							@foreach ($talks as $tk)
 							<tr>
-								<td class="text-center">{{ $tk->create_at}}</td>
-								<td>{{ $tk->user->name }}</td>
-								<td class="text-center">{{ $tk->title}}</td>
+								<td>{{ $tk->created_at}}</td>
+								<td>{{ $tk->user->apelido }}</td>
+								<td>{{ $tk->titulo}}</td>
 								
 								<td class="text-center"><a class="btn btn-warning btn-sm"
-									href="{{ route('user.show',$tk->id) }}"> Editar</a>
+									href="{{ route('user.show',$tk->id) }}"><i class="fa fa-search" aria-hidden="true"></i> Perfil</a>
 								</td>
 								
 								<td class="text-center"><a class="btn btn-warning btn-sm"
-									href="{{ route('talk.show',$tk->id) }}"> Editar</a>
+									href="{{ route('talk.show',$tk->id) }}"><i class="fa fa-search" aria-hidden="true"></i> Talk</a>
 								</td>
 							
 							</tr>

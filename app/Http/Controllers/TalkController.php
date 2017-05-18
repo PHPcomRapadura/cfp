@@ -86,9 +86,9 @@ class TalkController extends Controller
 
         if(isset($request['event_id']))
         {   
-            $talks = Talk::where('event_id', $request->id)
+            $talks = Talk::where('event_id', $request['event_id'])
                        ->orderBy('id')
-                      ->paginate(10);
+                       ->paginate(10);
 
             return view('talk.listall',compact('talks','events'))
                  ->with('i', ($request->input('page', 1) - 1) * 10);   
