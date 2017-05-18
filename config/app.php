@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'CFP PHPESTE 2017',
+    'name' => 'Call For Paper',
 
     /*
     |--------------------------------------------------------------------------

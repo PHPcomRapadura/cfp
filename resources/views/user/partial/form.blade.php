@@ -53,8 +53,8 @@
 
 			  			<div class="col-md-6">
 						  <div class="form-group">
-						     {!! Form::label('avatar','Trocar Avatar/Foto:',array('class' => 'control-label')) !!}
-						     {!! Form::file('avatar') !!}
+						     {!! Form::label('foto','Trocar Avatar/Foto:',array('class' => 'control-label')) !!}
+						     {!! Form::file('foto') !!}
 						  </div>
 						 </div>
 

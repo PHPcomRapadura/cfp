@@ -2,6 +2,8 @@
 
 @section('content')
 
+<div class="container">
+
 <!-- mensagens de error -->
 @if(count($errors->all()) > 0)
 <div class="alert alert-danger col-md-8 col-md-offset-2">
@@ -13,7 +15,6 @@
 </div>
 @endif
 
-<div class="container">
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
             <div class="panel panel-primary">

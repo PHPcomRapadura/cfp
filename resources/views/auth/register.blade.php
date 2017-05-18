@@ -2,6 +2,8 @@
 
 @section('content')
 
+<div class="container">
+
 <!-- mensagens de error -->
 @if(count($errors->all()) > 0)
 <div class="alert alert-danger col-md-8 col-md-offset-2">
@@ -13,8 +15,6 @@
 </div>
 @endif
 
-
-<div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-primary">
@@ -31,15 +31,12 @@ Registre-se</strong></div>
                           </div>
                         </div>
 
-
                         <div class="col-md-4">
                           <div class="form-group{{ $errors->has('apelido') ? ' has-error' : '' }}">
                             <label for="name">Apelido:</label>
                                 <input id="apelido" type="text" class="form-control" name="apelido" maxlength="60" value="{{ old('apelido') }}" required>
                           </div>
                         </div>
-
-
 
                         <div class="col-md-6">
                           <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
@@ -48,7 +45,6 @@ Registre-se</strong></div>
                           </div>
                         </div>
 
-
                         <div class="col-md-6">
                           <div class="form-group{{ $errors->has('git') ? ' has-error' : '' }}">
                             <label for="name">Github:</label>
@@ -56,14 +52,12 @@ Registre-se</strong></div>
                           </div>
                         </div>
 
-
                         <div class="col-md-6">
                           <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="name">Senha:</label>
                                 <input id="password" type="password"  class="form-control" name="password" maxlength="100" value="{{ old('password') }}" required>
                           </div>
                         </div>
-
 
                         <div class="col-md-6">
                             <div class="form-group">

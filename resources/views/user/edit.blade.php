@@ -2,8 +2,10 @@
 
 @section('content')
 
-<!-- mensagens de error -->
+<div class="container">
+
 @if(count($errors->all()) > 0)
+
 <div class="alert alert-danger col-md-8 col-md-offset-2">
 	<ul>
 		@foreach($errors->all() as $error)
@@ -22,10 +24,8 @@
 </div>
 @endif
 
-
 @can('users-update')
 
-<div class="container">
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<div class="panel panel-primary">
@@ -36,7 +36,7 @@
 				</div>
 				<div class="panel-body">
 
-				{!! Form::model($user,['route' => ['user.update', $user->id]]) !!} 
+				{!! Form::model($user,['route' => ['user.update', $user->id],'files' => true]) !!} 
 
 					<input type="hidden" name="_method" value="PUT">
 

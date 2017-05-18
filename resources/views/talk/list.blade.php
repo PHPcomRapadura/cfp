@@ -2,7 +2,8 @@
 
 @section('content')
 
-<!-- mensagens de error -->
+<div class="container">
+
 @if(count($errors->all()) > 0)
 <div class="alert alert-danger col-md-8 col-md-offset-2">
 	<ul>
@@ -23,7 +24,6 @@
 @endif
 
 @can('talks-create')
-<div class="container">
 
 	@if(isset($talks))	
 	<div class="row">
