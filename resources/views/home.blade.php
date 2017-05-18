@@ -40,7 +40,7 @@
                                             </strong>
                                         </h4>
                                         <p>
-                                            <a href="{{ url('/talk') }}" class="btn btn-primary btn-sm" role="button">
+                                            <a href="{{ url('/talks') }}" class="btn btn-primary btn-sm" role="button">
                                                 <i class="fa fa-sign-in" aria-hidden="true"></i> Acessar
                                             </a>
                                         </p>

@@ -72,7 +72,31 @@ class TalkController extends Controller
      */
     public function show($id)
     {
-        //
+
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function all(Request $request)
+    {
+        $events = Event::all()->pluck('name','id');
+
+        if(isset($request['event_id']))
+        {   
+            $talks = Talk::where('event_id', $request->id)
+                       ->orderBy('id')
+                      ->paginate(10);
+
+            return view('talk.listall',compact('talks','events'))
+                 ->with('i', ($request->input('page', 1) - 1) * 10);   
+        }else{
+
+            return view('talk.listall',compact('events'))
+                 ->with('i', ($request->input('page', 1) - 1) * 10);   
+        }
     }
 
     /**

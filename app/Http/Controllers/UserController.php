@@ -3,8 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\File;
+use App\Http\Requests\UserFormRequest;
+use Illuminate\Support\Facades\Hash;
 use App\User;
 use Auth;
+
 
 class UserController extends Controller
 {
@@ -74,7 +79,30 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+
+        if(isset($request['foto']))
+        {
+            $arquivo = Input::file('foto');
+            $arquivo->move('uploads', $arquivo->getClientOriginalName());
+            $user->foto = $arquivo->getClientOriginalName();
+        }
+
+        if(isset($request['password']))
+        {   
+            $user->password = Hash::make($request->newPassword);
+
+            $user->fill($request->only($request->only('name','apelido','email','git','cidade','estado','biografia')))
+                 ->save();
+        }else{
+
+            $user->fill($request->only('name','apelido','email','git','cidade','estado','biografia'))
+                 ->save();    
+        }
+
+        return redirect()
+               ->route('user.edit', $id)
+               ->with(['success'=> 'Dados alterados com sucesso!']);
     }
 
     /**

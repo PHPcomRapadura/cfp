@@ -9,7 +9,7 @@
 
 						<div class="col-md-8">
 						  <div class="form-group">
-						   {!! Form::label('name','Nome do Evento:',array('class' => 'control-label')) !!}
+						   {!! Form::label('name','Nome:',array('class' => 'control-label')) !!}
 						   {!! Form::text('name', null, ['class' => 'form-control']) !!}
 						  </div>
 						</div>
@@ -37,9 +37,9 @@
 						 </div>
 						 
 						  <div class="col-md-6">
-                          <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="name">Senha:</label>
-                                <input id="password" type="password"  class="form-control" name="password" maxlength="100" value="{{ old('password') }}" >
+                          <div class="form-group">
+                            <label for="name">Alterar Senha:</label>
+                                <input id="password" type="password"  class="form-control" name="password" maxlength="100" />
 
                           </div>
                         </div>
