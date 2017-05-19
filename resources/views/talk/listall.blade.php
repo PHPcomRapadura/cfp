@@ -62,7 +62,7 @@
 							    <th>Emissão</th>
 								<th>Palestrante</th>
 								<th>Tema</th>
-								<th colspan="2" class="text-center">Ações</th>
+								<th colspan="2" class="text-center">Visualizar</th>
 							</tr>
 							@foreach ($talks as $tk)
 							<tr>
@@ -71,10 +71,10 @@
 								<td>{{ $tk->titulo}}</td>
 								
 								<td class="text-center"><a class="btn btn-warning btn-sm"
-									href="{{ route('user.show',$tk->id) }}"><i class="fa fa-search" aria-hidden="true"></i> Perfil</a>
+									href="{{ route('user.show',$tk->user->id) }}"><i class="fa fa-search" aria-hidden="true"></i> Perfil</a>
 								</td>
 								
-								<td class="text-center"><a class="btn btn-warning btn-sm"
+								<td class="text-center"><a class="btn btn-success btn-sm"
 									href="{{ route('talk.show',$tk->id) }}"><i class="fa fa-search" aria-hidden="true"></i> Talk</a>
 								</td>
 							

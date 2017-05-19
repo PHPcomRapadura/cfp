@@ -7,10 +7,10 @@
                 <div class="panel panel-primary">
                     <div class="panel-heading"><strong>Seja bem-vindo Sr.(a) {{ Auth::user()->apelido }}</strong></div>
                     <div class="panel-body">
-                        @can('talks-create')
+                        @can('talks-view')
                             <div class="col-md-6">
                                 <div class="thumbnail text-center">
-                                    <img src="{{URL::asset('/img/talks.jpg')}}" alt="Talk">
+                                    <img src="{{URL::asset('/img/user-talk.png')}}" alt="Talk">
                                     <div class="caption">
                                         <h4>
                                             <strong>
@@ -28,10 +28,10 @@
                             </div>
                         @endcan
 
-                        @can('talks-view')
+                        @can('talks-all')
                             <div class="col-md-6">
                                 <div class="thumbnail text-center">
-                                    <img src="{{URL::asset('/img/talks.jpg')}}" alt="Talk">
+                                    <img src="{{URL::asset('/img/talks-various.jpg')}}" alt="Talk">
                                     <div class="caption">
                                         <h4>
                                             <strong>
@@ -49,20 +49,35 @@
                             </div>
                         @endcan
 
-                            @can('users-update')
+                    @can('users-update')
                         <div class="col-md-6">
 
                             <div class="thumbnail text-center">
 
-                                <img src="{{URL::asset('/img/user.jpg')}}" alt="Perfil">
+                                <img src="{{URL::asset('/img/user-1.jpg')}}" alt="Perfil">
 
                                 <div class="caption">
                                     <h4><strong><i class="fa fa-edit" aria-hidden="true"></i> Editar seu perfil</strong>
                                     </h4>
                                     <p><a href="{{ route('user.edit', Auth::user()->id) }}"
-                                          class="btn btn-primary btn-sm" role="button"><i class="fa fa-sign-in"
-                                                                                          aria-hidden="true"></i>
-                                            Acessar</a></p>
+                                          class="btn btn-primary btn-sm" role="button"><i class="fa fa-sign-in" aria-hidden="true"></i> Acessar</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        @endcan
+
+                        @can('users-view')
+                        <div class="col-md-6">
+
+                            <div class="thumbnail text-center">
+
+                                <img src="{{URL::asset('/img/users-2-icon.png')}}" alt="Perfil">
+
+                                <div class="caption">
+                                    <h4><strong><i class="fa fa-edit" aria-hidden="true"></i> Visualizar perfis dos palestrantes</strong>
+                                    </h4>
+                                    <p><a href="{{ route('user.index') }}"
+                                          class="btn btn-primary btn-sm" role="button"><i class="fa fa-sign-in" aria-hidden="true"></i> Acessar</a></p>
                                 </div>
                             </div>
                         </div>
@@ -73,7 +88,7 @@
 
                             <div class="thumbnail text-center">
 
-                                <img src="{{URL::asset('/img/evento.jpg')}}" alt="Eventos">
+                                <img src="{{URL::asset('/img/events-1.png')}}" alt="Eventos">
 
                                 <div class="caption">
                                     <h4><strong><i class="fa fa-users" aria-hidden="true"></i> Controle de

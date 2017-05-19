@@ -34,6 +34,12 @@ class RolesTableSeeder extends Seeder
             'descricao'  => 'Perfil do Administrador do sistema',
         ]);
 
+
+        Role::create([
+            'perfil' => 'ORGANIZADOR', 
+            'descricao'  => 'Perfil de organizador de eventos',
+        ]);
+
         Role::create([
             'perfil' => 'PALESTRANTE', 
             'descricao'  => 'Perfil de palestrante',
@@ -49,6 +55,7 @@ class RolesTableSeeder extends Seeder
             'user_id' => 1,
             'role_id'  => 1,
         ]);
+
         Role_User::create([
             'user_id' => 2,
             'role_id'  => 2,

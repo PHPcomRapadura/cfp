@@ -72,6 +72,12 @@ class PermissionsTableSeeder extends Seeder
             'nome' => 'Delete talk', 
             'descricao'  => 'Excluir submissão de palestras para os eventos',
         ]);
+
+        Permission::create([
+            'slug'=>'talks-all',
+            'nome' => 'Todas Palestras',
+            'descricao'  => 'Vizualizar todas palestras enviadas',
+        ]);
         
         Permission::create([
             'slug'=>'events-view',
@@ -104,23 +110,52 @@ class PermissionsTableSeeder extends Seeder
 
     private function createPermission_role()
     {
+        Permission_role::create([
+            'permission_id' => 1,
+            'role_id'  => 2,
+        ]);
+        Permission_role::create([
+            'permission_id' => 9,
+            'role_id'  => 2,
+        ]);
+        Permission_role::create([
+            'permission_id' => 10,
+            'role_id'  => 2,
+        ]);
+        Permission_role::create([
+            'permission_id' => 11,
+            'role_id'  => 2,
+        ]);
+        Permission_role::create([
+            'permission_id' => 12,
+            'role_id'  => 2,
+        ]);
+        Permission_role::create([
+            'permission_id' => 13,
+            'role_id'  => 2,
+        ]);
 
         Permission_role::create([
             'permission_id' => 3,
-            'role_id'  => 2,
+            'role_id'  => 3,
         ]);
         Permission_role::create([
             'permission_id' => 5,
-            'role_id'  => 2,
+            'role_id'  => 3,
         ]);
         Permission_role::create([
             'permission_id' => 6,
-            'role_id'  => 2,
+            'role_id'  => 3,
         ]);
         Permission_role::create([
             'permission_id' => 7,
-            'role_id'  => 2,
+            'role_id'  => 3,
         ]);
+        Permission_role::create([
+            'permission_id' => 8,
+            'role_id'  => 3,
+        ]);
+        
         $this->command->info('Permission_role created');
     }
 }

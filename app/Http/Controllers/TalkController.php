@@ -72,7 +72,11 @@ class TalkController extends Controller
      */
     public function show($id)
     {
+         $talk = Talk::find($id);
+         $user = User::where('id',$talk->user_id)->first();
 
+        return view('talk.show')
+             ->with(compact('talk','user'));
     }
 
     /**

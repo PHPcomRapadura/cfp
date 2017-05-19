@@ -28,21 +28,21 @@ class UserTableSeeder extends Seeder
             'name'  => 'ADM',
             'password' => bcrypt('123456')
         ]);
+
         User::create([
-           'apelido' => 'Thiago Dionizio',
-           'git' =>  'https://github.com/thiagodionizio',
+           'apelido' => 'Organizador',
+           'git' =>  'https://github.com/PHPcomRapadura',
 //Alisson precisa mudar essa foto.. path ou o que for usar.
            'foto' => 'foto',
            'cidade' => 'Fortaleza',
            'estado' => 'Ceará',
            'biografia' => 'Nossa História',
-            'email' => 'thiago.o.dionizio@gmail.com',
-            'name'  => 'ADM',
+            'email' => 'comunidade@phpcomrapadura.org',
+            'name'  => 'Organizador',
             'password' => bcrypt('123456')
         ]);
         
         // Exibe uma informação no console durante o processo de seed
         $this->command->info('User admin@phpcomrapadura.org created');
-
     }
 }
