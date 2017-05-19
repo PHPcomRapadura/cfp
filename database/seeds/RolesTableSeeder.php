@@ -61,6 +61,11 @@ class RolesTableSeeder extends Seeder
             'role_id'  => 2,
         ]);
 
+        Role_User::create([
+            'user_id' => 3,
+            'role_id'  => 3,
+        ]);
+
         // Exibe uma informação no console durante o processo de seed
         $this->command->info('Role_User created');
     }

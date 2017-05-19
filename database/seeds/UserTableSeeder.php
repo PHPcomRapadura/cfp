@@ -6,10 +6,7 @@ use Illuminate\Database\Seeder;
 class UserTableSeeder extends Seeder
 {
     public function run()
-    {
-//        // Apaga toda a tabela de usuários
-//        DB::table('users')->truncate();
-        
+    {    
         // Cria usuários admins (dados controlados)
         $this->createAdmins();
               
@@ -31,7 +28,7 @@ class UserTableSeeder extends Seeder
 
         User::create([
            'apelido' => 'Organizador',
-           'git' =>  'https://github.com/PHPcomRapadura',
+           'git' =>  'https://github.com/OrgPHPcomRapadura',
 //Alisson precisa mudar essa foto.. path ou o que for usar.
            'foto' => 'foto',
            'cidade' => 'Fortaleza',
@@ -39,6 +36,19 @@ class UserTableSeeder extends Seeder
            'biografia' => 'Nossa História',
             'email' => 'comunidade@phpcomrapadura.org',
             'name'  => 'Organizador',
+            'password' => bcrypt('123456')
+        ]);
+
+         User::create([
+           'apelido' => 'Alisson',
+           'git' =>  'https://github.com/AlissonSilvaCe',
+//Alisson precisa mudar essa foto.. path ou o que for usar.
+           'foto' => 'foto',
+           'cidade' => 'Fortaleza',
+           'estado' => 'Ceará',
+           'biografia' => 'Nossa História',
+            'email' => 'alisson.sousa12@gmail.com',
+            'name'  => 'Alisson Silva',
             'password' => bcrypt('123456')
         ]);
         

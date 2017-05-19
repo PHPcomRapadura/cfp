@@ -50,7 +50,7 @@ class User extends Authenticatable
 
     public function isSuperAdmin()
     {
-//        dd($this->roles()->get());
+         // dd($this->roles()->get());
         return $this->roles()->get()->first()->id === 1;
     }
 
