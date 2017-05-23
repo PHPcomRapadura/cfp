@@ -91,14 +91,13 @@ class UserController extends Controller
             $arquivo = Input::file('foto');
             $arquivo->move($destinationPath, $arquivo->getClientOriginalName());
             $user->foto = $arquivo->getClientOriginalName();
-
         }
 
         if(isset($request['password']))
         {   
             $user->password = Hash::make($request['password']);
 
-            $user->fill($request->only($request->only('name','apelido','email','git','cidade','estado','biografia')))
+            $user->fill($request->only('name','apelido','email','git','cidade','estado','biografia'))
                  ->save();
         }else{
 

@@ -35,7 +35,7 @@
 				
 				<div class="panel-body">
 
-				{!! Form::open(['route' => 'talks.all', 'method' => 'GET']) !!}
+				{!! Form::open(['url' => route('talk.search')]) !!}
 										
 						@include('talk.partial.pform')
 

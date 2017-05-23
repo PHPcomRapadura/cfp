@@ -86,11 +86,13 @@ class TalkController extends Controller
      */
     public function all(Request $request)
     {
+        $data = $request->all();
+
         $events = Event::all()->pluck('name','id');
 
-        if(isset($request['event_id']))
+        if(isset($data['event_id']))
         {   
-            $talks = Talk::where('event_id', $request['event_id'])
+            $talks = Talk::where('event_id', $data['event_id'])
                        ->orderBy('id')
                        ->paginate(10);
 

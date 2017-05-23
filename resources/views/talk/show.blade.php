@@ -4,7 +4,7 @@
 
 <div class="container">
 
-@can('talks-view')
+@can('talks-all')
 
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">

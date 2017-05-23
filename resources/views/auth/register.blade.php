@@ -99,7 +99,7 @@ Registre-se</strong></div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i>
 Salvar</button>
-                                <a href="{{ url('/') }}" class="btn btn-warning"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+                                <a href="javascript:history.back()" class="btn btn-warning"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
 Voltar</a>
                             </div>
                         </div>
