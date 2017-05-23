@@ -21,6 +21,11 @@
             html, body {
                 background-color: #bdc3c7;
             }
+            #cor-padrao{
+
+                background-color: #2980b9 !important;
+                color: #FFF !important;
+            }
         </style>
 
     <!-- Scripts -->
@@ -32,7 +37,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
+        <nav class="navbar navbar-default navbar-static-top" id="cor-padrao">
             <div class="container">
                 <div class="navbar-header">
 
@@ -54,19 +59,24 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         @can('users-view')
-                            <li><a href="">Usuários</a></li>
+                            <li><a href=""><strong><i class="fa fa-users" aria-hidden="true"></i>
+Usuários</a></strong></li>
                         @endcan
                         @can('users-update')
-                            <li><a href="{{ route('user.edit', Auth::user()->id) }}">Perfil</a></li>
+                            <li><a href="{{ route('user.edit', Auth::user()->id) }}"><strong><i class="fa fa-user" aria-hidden="true"></i>
+Perfil</a></strong></li>
                         @endcan
                         @can('events-view')
-                            <li><a href="{{ url('/event') }}"> Evento</a></li>
+                            <li><a href="{{ url('/event') }}"><strong><i class="fa fa-calendar" aria-hidden="true"></i>
+ Eventos</a></strong></li>
                         @endcan
                         @can('talks-view')
-                            <li><a href="{{ url('/talk') }}"> Palestras</a></li>
+                            <li><a href="{{ url('/talk') }}"><strong><i class="fa fa-microphone" aria-hidden="true"></i>
+ Palestras</a></strong></li>
                         @endcan
-                        @can('talks-create')
-                            <li><a href="{{ url('/talk') }}"> Palestras</a></li>
+                        @can('talks-all')
+                            <li><a href="{{ url('/talks') }}"><strong><i class="fa fa-microphone" aria-hidden="true"></i>
+ Palestras</a></strong></li>
                         @endcan
                     </ul>
 
@@ -74,12 +84,13 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                            <li><a href="{{ url('/login') }}">LOGIN</a></li>
-                            <li><a href="{{ url('/register') }}">REGISTRE-SE</a></li>
+                            <li><a href="{{ url('/login') }}"> LOGIN</a></li>
+                            <li><a href="{{ url('/register') }}"> REGISTRE-SE</a></li>
                         @else
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->apelido }} <span class="caret"></span>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><strong>
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+ {{ Auth::user()->apelido }} </strong><span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
