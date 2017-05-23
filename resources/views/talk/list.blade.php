@@ -29,7 +29,7 @@
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<div class="panel panel-primary">
-				<div class="panel-heading">
+				<div class="panel-heading" id="cor-padrao">
 					<strong><i class="fa fa-microphone" aria-hidden="true"></i> Controle de palestras</strong><span class="pull-right"><a class="btn btn-success btn-sm" href="{{ route('talk.create') }}"> <strong><i
 						    class="fa fa-plus" aria-hidden="true"></i> Incluir</strong></a></span>
 				</div>

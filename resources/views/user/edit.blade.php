@@ -29,7 +29,7 @@
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<div class="panel panel-primary">
-				<div class="panel-heading">
+				<div class="panel-heading" id="cor-padrao">
 					<strong><i class="fa fa-user" aria-hidden="true"></i>
 						Editar Perfil</strong>
 

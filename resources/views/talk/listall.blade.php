@@ -28,7 +28,7 @@
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
 			<div class="panel panel-primary">
-				<div class="panel-heading">
+				<div class="panel-heading" id="cor-padrao">
 					<strong><i class="fa fa-microphone" aria-hidden="true"></i> Gerenciar Talks</strong> 
 					  
 				</div>
@@ -49,7 +49,7 @@
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
 			<div class="panel panel-primary">
-				<div class="panel-heading">
+				<div class="panel-heading" id="cor-padrao">
 					<strong><i class="fa fa-list-alt" aria-hidden="true"></i> Listagem de talks enviadas</strong> 
 				</div>
 				
@@ -59,7 +59,7 @@
 
 						<table class="table table-hover table-responsive table-bordered table-striped">
 							<tr class="active">
-							    <th>Emissão</th>
+							    <th>Enviada em</th>
 								<th>Palestrante</th>
 								<th>Tema</th>
 								<th colspan="2" class="text-center">Visualizar</th>

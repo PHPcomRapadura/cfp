@@ -17,14 +17,11 @@
 
 <link href="/css/datepicker.css" rel="stylesheet">
 
+<link href="/css/menu.css" rel="stylesheet">
+
         <style>
             html, body {
                 background-color: #bdc3c7;
-            }
-            #cor-padrao{
-
-                background-color: #2980b9 !important;
-                color: #FFF !important;
             }
         </style>
 

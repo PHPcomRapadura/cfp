@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading"><strong>Seja bem-vindo Sr.(a) {{ Auth::user()->apelido }}</strong></div>
+                    <div class="panel-heading" id="cor-padrao"><strong>Seja bem-vindo Sr.(a) {{ Auth::user()->apelido }}</strong></div>
                     <div class="panel-body">
                         @can('talks-view')
                             <div class="col-md-6">
@@ -29,7 +29,7 @@
                         @endcan
 
                         @can('talks-all')
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="thumbnail text-center">
                                     <img src="{{URL::asset('/img/talks-various.jpg')}}" alt="Talk">
                                     <div class="caption">
@@ -67,7 +67,7 @@
                         @endcan
 
                         @can('users-view')
-                        <div class="col-md-6">
+                        <div class="col-md-4">
 
                             <div class="thumbnail text-center">
 
@@ -84,7 +84,7 @@
                         @endcan
 
                         @can('events-view')
-                        <div class="col-md-6">
+                        <div class="col-md-4">
 
                             <div class="thumbnail text-center">
 
