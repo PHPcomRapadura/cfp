@@ -15,12 +15,14 @@ class EventController extends Controller
      */
     public function index(Request $request)
     {
-
-        if(isset($request['dtinicial']) && isset($request['dfinal']))
+        $data = $request->all();
+//        dd($data, isset($data['dtinicial']) && isset($data['dtfinal']));
+        if(isset($data['dtinicial']) && isset($data['dtfinal']))
         {
 
-        $dtinicial = \Carbon\Carbon::createFromFormat('d/m/Y', $request['dtinicial']);
-        $dtfinal= \Carbon\Carbon::createFromFormat('d/m/Y', $request['dfinal']);
+
+        $dtinicial = \Carbon\Carbon::createFromFormat('d/m/Y', $data['dtinicial']);
+        $dtfinal= \Carbon\Carbon::createFromFormat('d/m/Y', $data['dtfinal']);
 
             $events = Event::where('datainicial','>=',$dtinicial)
                            ->where('datafinal','<=',$dtfinal)

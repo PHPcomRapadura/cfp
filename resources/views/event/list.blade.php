@@ -36,7 +36,7 @@
 				
 				<div class="panel-body">
 
-				{!! Form::open(['route' => 'event.index', 'method' => 'GET']) !!}
+				{!! Form::open(['url' => route('event.search')]) !!}
 										
 						@include('event.partial.pform')
 
