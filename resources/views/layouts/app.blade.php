@@ -15,9 +15,9 @@
 
 <script src="https://use.fontawesome.com/6c531641d9.js"></script>
 
-<link href="/css/datepicker.css" rel="stylesheet">
+<link href="{{ asset('css/datepicker.css') }}" rel="stylesheet">
 
-<link href="/css/menu.css" rel="stylesheet">
+<link href="{{ asset('css/menu.css') }}" rel="stylesheet">
 
         <style>
             html, body {
@@ -113,13 +113,18 @@ Perfil</a></strong></li>
         @yield('content')
     </div>
 
-     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-     <script src="js/app.js"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+    
+              <script
+              src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+              integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+              crossorigin="anonymous"></script>
 
- <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
 
-    <script src="/js/jquery.maskedinput.js"></script>
-    <script src="/js/datepicker.js"></script>
+     <script src="{{ asset('/js/jquery.maskedinput.js') }}"></script>
+
+     <script src="{{ asset('js/datepicker.js') }}"></script>
+
     
 <script>
   $(function() {
