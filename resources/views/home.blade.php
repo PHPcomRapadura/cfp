@@ -7,6 +7,17 @@
                 <div class="panel panel-primary">
                     <div class="panel-heading" id="cor-padrao"><strong>Seja bem-vindo Sr.(a) {{ Auth::user()->apelido }}</strong></div>
                     <div class="panel-body">
+
+                    @if(empty(Auth::user()->aeroporto)|| empty(Auth::user()->sexo_id)|| empty(Auth::user()->alimentacao))
+                         <div class="col-md-12">
+                            <div class="alert alert-danger col-md-8 col-md-offset-2">
+                            <ul>
+                                <li><i class="fa fa-hand-paper-o" aria-hidden="true"></i> Há dados no seu perfil que precisam ser preenchidos!</li>
+                            </ul>
+                        </div>
+                         </div>
+                    @endif
+
                         @can('talks-view')
                             <div class="col-md-6">
                                 <div class="thumbnail text-center">
