@@ -4,23 +4,18 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTalkTable extends Migration
+class CreateSexTable extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
      */
-      public function up()
+    public function up()
     {
-        Schema::create('talks', function (Blueprint $table) {
+         Schema::create('sexo', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
-            $table->integer('event_id');
-            $table->integer('nivel_id');
-            $table->integer('trilha');
-            $table->string('titulo',150);
-            $table->text('descricao');
+            $table->string('descricao');
             $table->timestamps();
         });
     }
@@ -32,6 +27,6 @@ class CreateTalkTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('talks');
+        Schema::dropIfExists('sexo');
     }
 }

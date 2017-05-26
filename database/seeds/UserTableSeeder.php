@@ -23,6 +23,9 @@ class UserTableSeeder extends Seeder
            'biografia' => 'Nossa História',
             'email' => 'admin@phpcomrapadura.org', 
             'name'  => 'ADM',
+            'sexo_id'=> 2,
+            'aeroporto'=> 'FOR',
+            'alimentacao'=>'', 
             'password' => bcrypt('123456')
         ]);
 
@@ -36,6 +39,9 @@ class UserTableSeeder extends Seeder
            'biografia' => 'Nossa História',
             'email' => 'comunidade@phpcomrapadura.org',
             'name'  => 'Organizador',
+            'sexo_id'=> 2,
+            'aeroporto'=> 'FOR',
+            'alimentacao'=>'',
             'password' => bcrypt('123456')
         ]);
 
@@ -49,6 +55,9 @@ class UserTableSeeder extends Seeder
            'biografia' => 'Nossa História',
             'email' => 'alisson.sousa12@gmail.com',
             'name'  => 'Alisson Silva',
+            'sexo_id'=> 2,
+            'aeroporto'=> 'FOR',
+            'alimentacao'=>'',
             'password' => bcrypt('123456')
         ]);
         

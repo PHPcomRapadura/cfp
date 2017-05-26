@@ -20,6 +20,27 @@
 						   	 {!! Form::text('apelido', null, ['class' => 'form-control']) !!}
 						  </div>
 						 </div>
+
+						  <div class="col-md-4">
+						  <div class="form-group">
+						     {!! Form::label('sexo_id','Sexo:',array('class' => 'control-label')) !!}
+						     {!! Form::select('sexo_id', $sex, null, ['class' => 'form-control']) !!}
+						  </div>
+						 </div>
+						 
+						 <div class="col-md-4">
+						  <div class="form-group">
+						   {!! Form::label('alimentacao','Tipo de Alimentação:',array('class' => 'control-label')) !!}
+						   {!! Form::text('alimentacao', null, ['class' => 'form-control']) !!}
+						  </div>
+						 </div>
+
+						 <div class="col-md-4">
+						  <div class="form-group">
+						   {!! Form::label('aeroporto','Aeroporto (sigla):',array('class' => 'control-label')) !!}
+						   {!! Form::text('aeroporto', null, ['class' => 'form-control']) !!}
+						  </div>
+						 </div>
 						 
 						 <div class="col-md-6">
 						  <div class="form-group">

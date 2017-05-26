@@ -11,7 +11,7 @@ class Talk extends Model
      *
      * @var array
      */
-    protected $fillable = ['titulo', 'event_id', 'descricao','user_id'];
+    protected $fillable = ['titulo', 'event_id', 'descricao','user_id','nivel_id','trilha'];
 
     public function event()
     {

@@ -5,9 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\File;
-use App\Http\Requests\UserFormRequest;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\UserFormRequest;
 use App\User;
+use App\Sexo;
 use Auth;
 
 
@@ -54,9 +55,10 @@ class UserController extends Controller
     {
 
      $user = User::find($id);
+     $sex = Sexo::all()->pluck('descricao','id');
 
         return view('user.show')
-             ->with(compact('user'));
+             ->with(compact('user','sex'));
     }
 
     /**
@@ -69,9 +71,10 @@ class UserController extends Controller
     {
       $id = Auth::user()->id;
       $user = User::find($id);
+      $sex = Sexo::all()->pluck('descricao','id');
 
         return view('user.edit')
-             ->with(compact('user'));
+             ->with(compact('user','sex'));
     }
 
     /**
@@ -97,11 +100,11 @@ class UserController extends Controller
         {   
             $user->password = Hash::make($request['password']);
 
-            $user->fill($request->only('name','apelido','email','git','cidade','estado','biografia'))
+            $user->fill($request->only('name','apelido','email','git','cidade','estado','biografia','sexo_id','alimentacao','aeroporto'))
                  ->save();
         }else{
 
-            $user->fill($request->only('name','apelido','email','git','cidade','estado','biografia'))
+            $user->fill($request->only('name','apelido','email','git','cidade','estado','biografia','sexo_id','alimentacao','aeroporto'))
                  ->save();    
         }
 

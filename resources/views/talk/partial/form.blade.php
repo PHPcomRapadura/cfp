@@ -12,7 +12,21 @@
 						     {!! Form::select('event_id', $events, null, ['class' => 'form-control']) !!}
 						  </div>
 						 </div>
-						 
+
+						 <div class="col-md-6">
+						  <div class="form-group">
+						     {!! Form::label('nivel_id','Nível:',array('class' => 'control-label')) !!}
+						     {!! Form::select('nivel_id', $niveis, null, ['class' => 'form-control']) !!}
+						  </div>
+						 </div>
+						
+						 <div class="col-md-6">
+						  <div class="form-group">
+						     {!! Form::label('trilha','Trilhas:',array('class' => 'control-label')) !!}
+						     {!! Form::select('trilha', $trilhas, null, ['class' => 'form-control']) !!}
+						  </div>
+						 </div>
+						
 						 <div class="col-md-12">
 						  <div class="form-group">
 						   {!! Form::label('descricao','Descrição:',array('class' => 'control-label')) !!}
@@ -20,7 +34,6 @@
 						  </div>
 						 </div>
 
-						 
 						 <div class="col-xs-12">
 						  <div class="form-group">
 						     <button type="submit" class="btn btn-success btn-sm"><strong><i class="fa fa-floppy-o" aria-hidden="true"></i>

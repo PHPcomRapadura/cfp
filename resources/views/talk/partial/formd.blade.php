@@ -13,6 +13,21 @@
 						   {!! Form::text('titulo', null, ['class' => 'form-control']) !!}
 						  </div>
 						</div>
+
+						 <div class="col-md-6">
+						  <div class="form-group">
+						     {!! Form::label('nivel_id','Nível:',array('class' => 'control-label')) !!}
+						     {!! Form::select('nivel_id', $niveis, null, ['class' => 'form-control']) !!}
+						  </div>
+						 </div>
+						
+						
+						 <div class="col-md-6">
+						  <div class="form-group">
+						     {!! Form::label('trilha','Trilhas:',array('class' => 'control-label')) !!}
+						     {!! Form::select('trilha', $trilhas, null, ['class' => 'form-control']) !!}
+						  </div>
+						 </div>
 						 
 						 <div class="col-md-12">
 						  <div class="form-group">

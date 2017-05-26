@@ -7,6 +7,8 @@ use App\Http\Requests\TalkFormRequest;
 use App\Talk;
 use App\User;
 use App\Event;
+use App\Nivel;
+use App\Trilha;
 use Auth;
 
 class TalkController extends Controller
@@ -36,8 +38,10 @@ class TalkController extends Controller
     public function create()
     {
         $events = Event::all()->pluck('name','id');
+        $niveis = Nivel::all()->pluck('descricao','id');
+        $trilhas = Trilha::all()->pluck('descricao','id');
 
-        return view('talk.create',compact('events'));
+        return view('talk.create',compact('events','niveis','trilhas'));
     }
 
     /**
@@ -53,7 +57,7 @@ class TalkController extends Controller
         if(strtotime($fimcfp->datafimdocfp) >= strtotime(date('Y-m-d')))
         {
             $request['user_id'] = $id = Auth::user()->id;
-            Talk::create($request->only('titulo','event_id','descricao','user_id'));
+            Talk::create($request->only('titulo','event_id','descricao','user_id','nivel_id','trilha'));
             
             return redirect()
                     ->route('talk.create')
@@ -74,9 +78,11 @@ class TalkController extends Controller
     {
          $talk = Talk::find($id);
          $user = User::where('id',$talk->user_id)->first();
+         $niveis = Nivel::all()->pluck('descricao','id');
+         $trilhas = Trilha::all()->pluck('descricao','id');
 
         return view('talk.show')
-             ->with(compact('talk','user'));
+             ->with(compact('talk','user','niveis','trilhas'));
     }
 
     /**
@@ -116,9 +122,11 @@ class TalkController extends Controller
          $talk = Talk::find($id);
 
          $events = Event::all()->pluck('name','id');
+         $niveis = Nivel::all()->pluck('descricao','id');
+         $trilhas = Trilha::all()->pluck('descricao','id');
 
         return view('talk.edit')
-             ->with(compact('talk','events'));
+             ->with(compact('talk','events','niveis','trilhas'));
     }
 
     /**

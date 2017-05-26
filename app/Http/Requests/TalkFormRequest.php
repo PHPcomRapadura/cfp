@@ -27,6 +27,8 @@ class TalkFormRequest extends FormRequest
         return [       
             'titulo' => 'required|max:150',
             'event_id' => 'required',
+            'nivel_id' => 'required',
+            'trilha' => 'required',
             'descricao' => 'required|max:400',
         ];
     }
@@ -42,6 +44,8 @@ class TalkFormRequest extends FormRequest
         
             'titulo.required' => 'O Titulo da palestra é obrigatório!',
             'event_id.required' => 'Por favor selecione um evento!',
+            'nivel_id.required' => 'Por favor selecione um nível!',
+            'trilha.required' => 'Por favor selecione um trilha!',
             'descricao.required' => 'A descrição da palestra é obrigatória!',
         ];
     }

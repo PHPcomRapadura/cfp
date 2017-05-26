@@ -23,6 +23,9 @@ class CreateUsersTable extends Migration
             $table->string('cidade');
             $table->string('estado');
             $table->text('biografia');
+            $table->integer('sexo_id');
+            $table->string('aeroporto',50);
+            $table->string('alimentacao',100);
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
