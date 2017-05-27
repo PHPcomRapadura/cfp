@@ -1,7 +1,7 @@
-						
+
 						<div class="col-md-12">
 						<div class="col-md-4 col-md-offset-4">
-						  <div class="form-group">						
+						  <div class="form-group">
 							<img class="img-responsive" src="{{ asset('uploads/'.$user->foto) }}">
 						  </div>
 						  </div>
@@ -13,7 +13,7 @@
 						   {!! Form::text('name', null, ['class' => 'form-control']) !!}
 						  </div>
 						</div>
-						
+
 						 <div class="col-md-4">
 						  <div class="form-group">
 						     {!! Form::label('apelido','Apelido:',array('class' => 'control-label'))!!}
@@ -27,7 +27,7 @@
 						     {!! Form::select('sexo_id', $sex, null, ['class' => 'form-control']) !!}
 						  </div>
 						 </div>
-						 
+
 						 <div class="col-md-4">
 						  <div class="form-group">
 						   {!! Form::label('alimentacao','Tipo de Alimentação:',array('class' => 'control-label')) !!}
@@ -41,15 +41,15 @@
 						   {!! Form::text('aeroporto', null, ['class' => 'form-control']) !!}
 						  </div>
 						 </div>
-						 
+
 						 <div class="col-md-6">
 						  <div class="form-group">
 						   {!! Form::label('email','E-mail:',array('class' => 'control-label')) !!}
 						   {!! Form::text('email', null, ['class' => 'form-control']) !!}
 						  </div>
 						 </div>
-                     
-                     
+
+
                      	<div class="col-md-6">
 						  <div class="form-group">
 						   {!! Form::label('git','Github:',array('class' => 'control-label')) !!}
@@ -84,4 +84,4 @@
 						     <a class="btn btn-warning btn-sm" href="javascript:history.back()"> <strong><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Voltar</strong></a>
 						  </div>
 						 </div>
-						 
+

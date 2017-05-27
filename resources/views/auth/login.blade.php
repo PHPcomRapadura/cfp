@@ -35,7 +35,6 @@ Autenticação de Usuários</strong></div>
                           <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="name">Senha:</label>
                                 <input id="password" placeholder="Senha" type="password"  class="form-control" name="password" maxlength="100" value="{{ old('password') }}" required>
-
                           </div>
 
                        <div class="col-md-12">
