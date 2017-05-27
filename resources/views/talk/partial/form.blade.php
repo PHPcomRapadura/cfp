@@ -1,8 +1,8 @@
 						
 						<div class="col-md-12">
 						  <div class="form-group">
-						   {!! Form::label('titulo','Título:',array('class' => 'control-label')) !!}
-						   {!! Form::text('titulo', null, ['class' => 'form-control']) !!}
+						   {!! Form::label('titulo','Título:',['class' => 'control-label']) !!}
+						   {!! Form::text('titulo', null, ['class' => 'form-control', 'placeholder' => 'Bote um titulo bem invocado']) !!}
 						  </div>
 						</div>
 						
@@ -30,7 +30,7 @@
 						 <div class="col-md-12">
 						  <div class="form-group">
 						   {!! Form::label('descricao','Descrição:',array('class' => 'control-label')) !!}
-						   {!! Form::textarea('descricao', null, ['class' => 'form-control','rows' => 5, 'cols' => 200,'maxlength' => 400]) !!}
+						   {!! Form::textarea('descricao', null, ['placeholder'=>'Mas então, o que realmente você fai falar?', 'class' => 'form-control','rows' => 5, 'cols' => 200,'maxlength' => 400]) !!}
 						  </div>
 						 </div>
 
