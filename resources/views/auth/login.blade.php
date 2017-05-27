@@ -27,14 +27,14 @@ Autenticação de Usuários</strong></div>
                        <div class="col-md-12">
                           <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="name">E-mail:</label>
-                                <input id="email" type="text" class="form-control" name="email" maxlength="150" value="{{ old('email') }}" required>
+                                <input id="email" placeholder="Email" type="text" class="form-control" name="email" maxlength="150" value="{{ old('email') }}" required>
                           </div>
                         </div>
 
                         <div class="col-md-12">
                           <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="name">Senha:</label>
-                                <input id="password" type="password"  class="form-control" name="password" maxlength="100" value="{{ old('password') }}" required>
+                                <input id="password" placeholder="Senha" type="password"  class="form-control" name="password" maxlength="100" value="{{ old('password') }}" required>
 
                           </div>
 
