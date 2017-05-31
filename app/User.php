@@ -5,6 +5,7 @@ namespace App;
 use App\Role;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Notifications\ResetPassword as ResetPasswordNotification;;
 
 class User extends Authenticatable
 {
@@ -54,4 +55,14 @@ class User extends Authenticatable
         return $this->roles()->get()->first()->id === 1;
     }
 
+    /**
+     * Send the password reset notification.
+     *
+     * @param  string  $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPasswordNotification($token));
+    }
 }
