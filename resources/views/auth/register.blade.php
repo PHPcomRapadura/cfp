@@ -17,7 +17,7 @@
 
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
-            <div class="panel panel-primary">
+            <div class="panel panel-danger">
                 <div class="panel-heading" id="cor-padrao"><strong><i class="fa fa-user-plus" aria-hidden="true"></i>
 Registre-se</strong></div>
                 <div class="panel-body">

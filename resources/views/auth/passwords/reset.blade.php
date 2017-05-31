@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-primary">
+            <div class="panel panel-danger">
                 <div class="panel-heading" id="cor-padrao"><strong><i class="fa fa-refresh" aria-hidden="true"></i> Recuperar senha</strong></div>
 
                 <div class="panel-body">

@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\UserFormRequest;
 use App\User;
 use App\Sexo;
+use App\Tpalimentacao;
 use Auth;
 
 
@@ -72,9 +73,10 @@ class UserController extends Controller
       $id = Auth::user()->id;
       $user = User::find($id);
       $sex = Sexo::all()->pluck('descricao','id');
+      $aliment = Tpalimentacao::all()->pluck('descricao','descricao');
 
         return view('user.edit')
-             ->with(compact('user','sex'));
+             ->with(compact('user','sex','aliment'));
     }
 
     /**
