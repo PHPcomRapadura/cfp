@@ -69,9 +69,16 @@
 
                 color: #025c98;
             }
+            body {
+                color: #fff;
+            }
+
+            a {
+                color: #fff !important;
+            }
         </style>
     </head>
-    <body>
+    <body style="background-image: url('img/fundo.png'); background-repeat: no-repeat; background-size: 100% 100%;">
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
