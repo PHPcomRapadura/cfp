@@ -48,7 +48,7 @@
 	@if(isset($talks))	
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
-			<div class="panel panel-primary">
+			<div class="panel panel-danger">
 				<div class="panel-heading" id="cor-padrao">
 					<strong><i class="fa fa-list-alt" aria-hidden="true"></i> Listagem de talks enviadas</strong> 
 				</div>
