@@ -81,8 +81,7 @@
 							</tr>
 							@endforeach
 						</table>
-						
-						{!! $talks->render() !!}
+			
 
 					</div>
 			

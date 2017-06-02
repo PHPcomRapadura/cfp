@@ -58,9 +58,9 @@
 						 </div>
 
 						  <div class="col-md-6">
-                          <div class="form-group">
+                          <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="name">Alterar Senha:</label>
-                                <input id="password" type="password"  class="form-control" name="password" maxlength="100" />
+                                <input id="password" type="password" value="{{ old('password') }}" class="form-control" name="password" />
 
                           </div>
                         </div>

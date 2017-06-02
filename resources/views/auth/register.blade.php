@@ -55,7 +55,7 @@ Registre-se</strong></div>
                         <div class="col-md-6">
                           <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="name">Senha:</label>
-                                <input id="password" type="password" placeholder="Cuidado, usamos md5 kkkkk" class="form-control" name="password" maxlength="100" value="{{ old('password') }}" required>
+                                <input id="password" type="password" placeholder="Digite a sua senha" class="form-control" name="password"  value="{{ old('password') }}" required>
                           </div>
                         </div>
 
@@ -67,9 +67,9 @@ Registre-se</strong></div>
                         </div>
 
                         <div class="col-md-6">
-                            <div class="form-group">
+                            <div class="form-group{{ $errors->has('foto') ? ' has-error' : '' }}">
                             <label for="foto">Retrato: </label>
-                                <input id="foto" type="file" class="form-control" title="Tamanho min: 200px e max:400px" name="foto" required="required">
+                                <input id="foto" type="file" class="form-control" value="{{ old('foto') }}" title="Tamanho min: 200px e max:400px" name="foto" required="required">
                             </div>
                         </div>
 
@@ -88,9 +88,9 @@ Registre-se</strong></div>
                         </div>
 
                         <div class="col-md-12">
-                          <div class="form-group{{ $errors->has('cidade') ? ' has-error' : '' }}">
+                          <div class="form-group{{ $errors->has('biografia') ? ' has-error' : '' }}">
                             <label for="name">Biografia:</label>
-                                <textarea placeholder="Conte-nos mais sobre você :)" class="form-control" name="biografia" id="biografia" cols="10" maxlength="250" rows="4"></textarea>
+                                <textarea placeholder="Conte-nos mais sobre você :)" class="form-control" name="biografia" id="biografia" cols="10" maxlength="250" rows="4">{{ old('biografia') }}</textarea>
                           </div>
                         </div>
 
