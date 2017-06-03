@@ -107,6 +107,10 @@
                   <p class="copyright">Call For Papers | <a id="link-color" href="http://phpcomrapadura.org" target="_blank">Community PHP com Rapadura</a> | Ceará - Brasil</p>
                 </div>
 
+                <p style="font-size: 18pt;">
+                    <a href="http://phpeste.net/palestrante.pdf" target="_blank"><strong>Conheça o Kit Palestrante</strong></a>
+                </p>
+
             </div>
         </div>
     </body>
