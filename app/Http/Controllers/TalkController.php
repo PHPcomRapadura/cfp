@@ -100,7 +100,7 @@ class TalkController extends Controller
         {   
             $talks = Talk::where('event_id', $data['event_id'])
                        ->orderBy('id')
-                       ->paginate(10);
+                       ->get();
 
             return view('talk.listall',compact('talks','events'))
                  ->with('i', ($request->input('page', 1) - 1) * 10);   

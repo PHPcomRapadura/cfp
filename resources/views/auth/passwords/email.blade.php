@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
-            <div class="panel panel-primary">
+            <div class="panel panel-default">
                 <div class="panel-heading" id="cor-padrao"><strong><i class="fa fa-refresh" aria-hidden="true"></i> Recuperar Senha</strong></div>
                 <div class="panel-body">
                     @if (session('status'))

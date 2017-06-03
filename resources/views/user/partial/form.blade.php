@@ -23,29 +23,15 @@
 
 						  <div class="col-md-4">
 						  <div class="form-group">
-							  <label for="sexo_id" class="control-label">Sexo:</label>
-							  <select name="sexo_id" id="sexo_id" class="form-control" required>
-								  <option selected disabled> -- Selecione -- </option>
-								  <option value="1" {{($user->sexo_id === 1)?'selected':''}}>Masculino</option>
-								  <option value="2" {{($user->sexo_id === 2)?'selected':''}}>Feminino</option>
-							  </select>
-						     {{--{!! Form::label('sexo_id','Sexo:',array('class' => 'control-label')) !!}--}}
-						     {{--{!! Form::select('sexo_id', $sex, null, ['class' => 'form-control']) !!}--}}
+						     {!! Form::label('sexo_id','Sexo:',array('class' => 'control-label')) !!}
+						     {!! Form::select('sexo_id', $sex, null, ['class' => 'form-control']) !!}
 						  </div>
 						 </div>
 
 						 <div class="col-md-4">
 						  <div class="form-group">
-							  <label for="alimentacao" class="control-label">Alguma restrição alimentícia?</label>
-							  <select name="alimentacao" id="alimentacao" class="form-control" required>
-								  {{($user->alimentacao != '') ? '<option selected>'.$user->alimentacao.'</option>' : '<option selected> -- Selecione -- </option>'}}
-								  <option value="Não"> Não </option>
-								  <option value="Vegetariano">Vegetariano</option>
-								  <option value="Vegano">Vegano</option>
-							  </select>
-
-							  {{--{!! Form::label('alimentacao','Tipo de Alimentação:',array('class' => 'control-label')) !!}--}}
-						   {{--{!! Form::text('alimentacao', null, ['class' => 'form-control']) !!}--}}
+							 {!! Form::label('alimentacao','Alguma restrição alimentícia?:',array('class' => 'control-label')) !!}
+						     {!! Form::select('alimentacao', $aliment, null, ['class' => 'form-control']) !!}
 						  </div>
 						 </div>
 
@@ -72,9 +58,9 @@
 						 </div>
 
 						  <div class="col-md-6">
-                          <div class="form-group">
+                          <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="name">Alterar Senha:</label>
-                                <input id="password" type="password"  class="form-control" name="password" maxlength="100" />
+                                <input id="password" type="password" value="{{ old('password') }}" class="form-control" name="password" />
 
                           </div>
                         </div>

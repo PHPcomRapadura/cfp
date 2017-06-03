@@ -4,7 +4,7 @@
     <div class="container container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <div class="panel panel-primary">
+                <div class="panel panel-danger">
                     <div class="panel-heading" id="cor-padrao"><strong>Seja bem-vindo Sr.(a) {{ Auth::user()->apelido }}</strong></div>
                     <div class="panel-body">
 

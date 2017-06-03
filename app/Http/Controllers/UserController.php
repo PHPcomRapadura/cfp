@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\UserFormRequest;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
-use App\Http\Requests\UserFormRequest;
 use App\User;
 use App\Sexo;
+use App\Tpalimentacao;
 use Auth;
 
 
@@ -72,19 +73,20 @@ class UserController extends Controller
       $id = Auth::user()->id;
       $user = User::find($id);
       $sex = Sexo::all()->pluck('descricao','id');
+      $aliment = Tpalimentacao::all()->pluck('descricao','descricao');
 
         return view('user.edit')
-             ->with(compact('user','sex'));
+             ->with(compact('user','sex','aliment'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  App\Http\Requests\UserFormRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserFormRequest $request, $id)
     {
         $user = User::find($id);
 
@@ -96,7 +98,7 @@ class UserController extends Controller
             $user->foto = $arquivo->getClientOriginalName();
         }
 
-        if(isset($request['password']))
+        if($request['password'] != "" && $request['password_confirmation'] != "")
         {   
             $user->password = Hash::make($request['password']);
 

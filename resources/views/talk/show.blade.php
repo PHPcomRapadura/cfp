@@ -8,7 +8,7 @@
 
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
-			<div class="panel panel-primary">
+			<div class="panel panel-danger">
 				<div class="panel-heading" id="cor-padrao">
 					<strong><i class="fa fa-microphone" aria-hidden="true"></i>
 						Informações da palestra</strong>
