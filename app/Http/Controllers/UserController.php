@@ -11,6 +11,7 @@ use App\User;
 use App\Sexo;
 use App\Tpalimentacao;
 use Auth;
+use Storage;
 
 
 class UserController extends Controller
@@ -54,12 +55,12 @@ class UserController extends Controller
      */
     public function show($id)
     {
-
-     $user = User::find($id);
-     $sex = Sexo::all()->pluck('descricao','id');
+        $user    = User::find($id);
+        $sex     = Sexo::all()->pluck('descricao','id');
+        $aliment = Tpalimentacao::all()->pluck('descricao','descricao');
 
         return view('user.show')
-             ->with(compact('user','sex'));
+            ->with(compact('user', 'sex', 'aliment'));
     }
 
     /**
@@ -90,29 +91,49 @@ class UserController extends Controller
     {
         $user = User::find($id);
 
-        if(isset($request['foto']))
-        {
-            $destinationPath = 'uploads';
-            $arquivo = Input::file('foto');
-            $arquivo->move($destinationPath, $arquivo->getClientOriginalName());
-            $user->foto = $arquivo->getClientOriginalName();
+        // Upload da imagem
+        $uploaded = $this->upload($request, $user->foto);
+
+        if ($uploaded !== false) {
+            $user->foto = $uploaded;
         }
 
-        if($request['password'] != "" && $request['password_confirmation'] != "")
-        {   
-            $user->password = Hash::make($request['password']);
-
-            $user->fill($request->only('name','apelido','email','git','cidade','estado','biografia','sexo_id','alimentacao','aeroporto'))
-                 ->save();
-        }else{
-
-            $user->fill($request->only('name','apelido','email','git','cidade','estado','biografia','sexo_id','alimentacao','aeroporto'))
-                 ->save();    
+        if (!empty($request->password) && !empty($request->password_confirmation)) {
+            $user->password = Hash::make($request->password);
         }
+
+        $user->fill($request->except(['_method', '_token', 'password', 'password_confirmation']))->save();
 
         return redirect()
-               ->route('user.edit', $id)
-               ->with(['success'=> 'Dados alterados com sucesso!']);
+            ->route('user.edit', $id)
+            ->with(['success'=> 'Dados alterados com sucesso!']);
+    }
+
+    /**
+     * Upload de arquivo
+     * @param  Request  $request
+     * @param  string   $oldFile
+     * @return string|boolean
+     */
+    protected function upload(Request $request, $oldFile = null)
+    {
+        if (!$request->hasFile('foto')) {
+            return false;
+        }
+
+        if ($oldFile && Storage::disk('public')->exists('uploads', $oldFile)) {
+            Storage::disk('public')->delete("uploads/$oldFile");
+        }
+
+        $file             = $request->file('foto');
+        $file_name        = $file->getClientOriginalName();
+        $destination_path = $file->storeAs('public/uploads', $file_name);
+
+        if (!$destination_path) {
+            return false;
+        }
+
+        return $file_name;
     }
 
     /**

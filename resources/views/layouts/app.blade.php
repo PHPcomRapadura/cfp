@@ -56,24 +56,16 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         @can('users-view')
-                            <li><a href=""><strong><i class="fa fa-users" aria-hidden="true"></i>
-Usuários</a></strong></li>
-                        @endcan
-                        @can('users-update')
-                            <li><a href="{{ route('user.edit', Auth::user()->id) }}"><strong><i class="fa fa-user" aria-hidden="true"></i>
-Perfil</a></strong></li>
+                            <li><a href="{{ route('user.index') }}"><strong><i class="fa fa-users" aria-hidden="true"></i> Usuários</a></strong></li>
                         @endcan
                         @can('events-view')
-                            <li><a href="{{ url('/event') }}"><strong><i class="fa fa-calendar" aria-hidden="true"></i>
- Eventos</a></strong></li>
+                            <li><a href="{{ route('event.index') }}"><strong><i class="fa fa-calendar" aria-hidden="true"></i> Eventos</a></strong></li>
                         @endcan
                         @can('talks-view')
-                            <li><a href="{{ url('/talk') }}"><strong><i class="fa fa-microphone" aria-hidden="true"></i>
- Palestras</a></strong></li>
+                            <li><a href="{{ route('talk.index') }}"><strong><i class="fa fa-microphone" aria-hidden="true"></i> Controle de palestras</a></strong></li>
                         @endcan
                         @can('talks-all')
-                            <li><a href="{{ url('/talks') }}"><strong><i class="fa fa-microphone" aria-hidden="true"></i>
- Palestras</a></strong></li>
+                            <li><a href="{{ route('talks.all') }}"><strong><i class="fa fa-microphone" aria-hidden="true"></i> Palestras submetidas</a></strong></li>
                         @endcan
                     </ul>
 
@@ -81,24 +73,28 @@ Perfil</a></strong></li>
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                            <li><a href="{{ url('/login') }}"> LOGIN</a></li>
-                            <li><a href="{{ url('/register') }}"> REGISTRE-SE</a></li>
+                            <li><a href="{{ url('login') }}"> LOGIN</a></li>
+                            <li><a href="{{ url('register') }}"> REGISTRE-SE</a></li>
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><strong>
-                                    <i class="fa fa-user" aria-hidden="true"></i>
- {{ Auth::user()->apelido }} </strong><span class="caret"></span>
+                                    <i class="fa fa-user" aria-hidden="true"></i> {{ Auth::user()->apelido }} </strong><span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
+                                    @can('users-update')
+                                        <li>
+                                            <a href="{{ route('user.edit', Auth::user()->id) }}">
+                                                <i class="fa fa-user" aria-hidden="true"></i> Meu perfil
+                                            </a>
+                                        </li>
+                                    @endcan
                                     <li>
-                                        <a href="{{ url('/logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Sair
+                                        <a href="{{ url('logout') }}" class="text-danger" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                            <i class="fa fa-sign-out" aria-hidden="true"></i> Sair
                                         </a>
 
-                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                        <form id="logout-form" action="{{ url('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
@@ -114,7 +110,7 @@ Perfil</a></strong></li>
     </div>
 
     <script src="{{ asset('js/app.js') }}"></script>
-    
+
               <script
               src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
               integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
@@ -125,7 +121,7 @@ Perfil</a></strong></li>
 
      <script src="{{ asset('js/datepicker.js') }}"></script>
 
-    
+
 <script>
   $(function() {
         $("#dtinicial").datepicker({
@@ -134,12 +130,12 @@ Perfil</a></strong></li>
         });
 
         $("#dtinicial").mask("99/99/9999");
-          
+
         $("#dtfinal").datepicker({
             showOtherMonths: true,
             selectOtherMonths: true
          });
-        
+
         $("#dtfinal").mask("99/99/9999");
 
         $("#dtfimcfp").datepicker({
@@ -149,7 +145,7 @@ Perfil</a></strong></li>
 
          $("#dtfimcfp").mask("99/99/9999");
   });
-</script>    
+</script>
 
 </body>
 </html>
