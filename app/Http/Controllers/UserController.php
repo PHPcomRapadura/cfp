@@ -102,7 +102,7 @@ class UserController extends Controller
             $user->password = Hash::make($request->password);
         }
 
-        $user->fill($request->all())->save();
+        $user->fill($request->except(['_method', '_token', 'password', 'password_confirmation']))->save();
 
         return redirect()
             ->route('user.edit', $id)
