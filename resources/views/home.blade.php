@@ -17,14 +17,14 @@
                             </div>
                         @endif
 
-                        @can('talks-view')
+                        @can('talks-create')
                             <div class="col-md-4">
                                 <div class="thumbnail text-center">
                                     <i class="fa fa-microphone fa-5x"></i>
                                     <div class="caption">
                                         <h4><strong>Submeta sua palestra</strong></h4>
                                         <p>
-                                            <a href="{{ url('/talk') }}" class="btn btn-primary" role="button">
+                                            <a href="{{ route('talk.create') }}" class="btn btn-primary" role="button">
                                                 <i class="fa fa-sign-in" aria-hidden="true"></i> Acessar
                                             </a>
                                         </p>
@@ -38,9 +38,9 @@
                                 <div class="thumbnail text-center">
                                     <i class="fa fa-comments fa-5x"></i>
                                     <div class="caption">
-                                        <h4><strong>Paslestras submetidas</strong></h4>
+                                        <h4><strong>Palestras submetidas</strong></h4>
                                         <p>
-                                            <a href="{{ url('/talks') }}" class="btn btn-primary" role="button">
+                                            <a href="{{ route('talks.all') }}" class="btn btn-primary" role="button">
                                                 <i class="fa fa-sign-in" aria-hidden="true"></i> Acessar
                                             </a>
                                         </p>
@@ -52,7 +52,9 @@
                         @can('users-update')
                             <div class="col-md-4">
                                 <div class="thumbnail text-center">
-                                    <i class="fa fa-user fa-5x"></i>
+                                    @if (Storage::exists('public/uploads/' . Auth::user()->foto))
+                                        <img class="img-responsive img-circle" width="70" src="{{ asset('storage/uploads/' . Auth::user()->foto) }}">
+                                    @endif
                                     <div class="caption">
                                         <h4><strong>Edite seu perfil</strong></h4>
                                         <p>
@@ -88,7 +90,7 @@
                                     <div class="caption">
                                         <h4><strong>Controle de Eventos</strong></h4>
                                         <p>
-                                            <a href="{{ url('/event') }}" class="btn btn-primary" role="button">
+                                            <a href="{{ route('event.index') }}" class="btn btn-primary" role="button">
                                                 <i class="fa fa-sign-in" aria-hidden="true"></i> Acessar
                                             </a>
                                         </p>
