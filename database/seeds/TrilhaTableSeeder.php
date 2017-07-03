@@ -70,6 +70,16 @@ class TrilhaTableSeeder extends Seeder
             'descricao'  => 'Devops',
         ]);
 
+    	Trilha::create([
+            'id' => 9, 
+            'descricao'  => 'Ferramentas',
+        ]);
+
+    	Trilha::create([
+            'id' => 10, 
+            'descricao'  => 'Motivação',
+        ]);
+
 
         // Exibe uma informação no console durante o processo de seed
         $this->command->info('Trilha created');
