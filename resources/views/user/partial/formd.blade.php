@@ -80,6 +80,6 @@
 
 	<div class="col-xs-12">
 		<div class="form-group">
-			<a class="btn btn-warning btn-sm" href="javascript:history.back()"> <strong><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Voltar</strong></a>
+			<a class="btn btn-warning btn-sm" href="/home"> <strong><i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i> Voltar</strong></a>
 		</div>
 	</div>

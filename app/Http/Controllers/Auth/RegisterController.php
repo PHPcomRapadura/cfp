@@ -11,6 +11,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\File;
 use App\Role_User;
+use Storage;
 
 class RegisterController extends Controller
 {
@@ -86,18 +87,15 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $destinationPath = 'uploads';
-        $arquivo = Input::file('foto');
-        $arquivo->move($destinationPath, $arquivo->getClientOriginalName());
+        // Upload da imagem
+        $uploaded = $this->upload($data);
 
-        $name_file = $arquivo->getClientOriginalName();
-       
         return User::create([
             'name' => $data['name'],
             'apelido' => $data['apelido'],
             'email' => $data['email'],
             'git' => $data['git'],
-            'foto' => $name_file,
+            'foto' => $uploaded,
             'cidade' => $data['cidade'],
             'estado' => $data['estado'],
             'biografia' => $data['biografia'],
@@ -106,6 +104,26 @@ class RegisterController extends Controller
             'aeroporto' => '',
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+     /**
+     * Upload de arquivo
+     * @param  Request  $request
+     * @param  string   $oldFile
+     * @return string|boolean
+     */
+    protected function upload($data)
+    {
+        $file             = Input::file('foto');
+        $extensao         = $file->extension();
+        $file_name        = $data['git'].'.'.$extensao;
+        $destination_path = $file->storeAs('public/uploads', $file_name);
+
+        if (!$destination_path) {
+            return false;
+        }
+
+        return $file_name;
     }
 
      /**

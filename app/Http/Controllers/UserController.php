@@ -93,16 +93,19 @@ class UserController extends Controller
 
         // Upload da imagem
         $uploaded = $this->upload($request, $user->foto);
-
-        if ($uploaded !== false) {
-            $user->foto = $uploaded;
-        }
+            
 
         if (!empty($request->password) && !empty($request->password_confirmation)) {
             $user->password = Hash::make($request->password);
         }
 
-        $user->fill($request->except(['_method', '_token', 'password', 'password_confirmation']))->save();
+        $user->fill($request->except(['_method', '_token', 'password', 'password_confirmation']));
+
+        if($uploaded !== false){
+            $user->foto = $uploaded;
+        }
+        
+        $user->save();
 
         return redirect()
             ->route('user.edit', $id)
@@ -126,7 +129,8 @@ class UserController extends Controller
         }
 
         $file             = $request->file('foto');
-        $file_name        = $file->getClientOriginalName();
+        $extensao         = $file->extension();
+        $file_name        = $request->git.'.'.$extensao;
         $destination_path = $file->storeAs('public/uploads', $file_name);
 
         if (!$destination_path) {
@@ -134,16 +138,5 @@ class UserController extends Controller
         }
 
         return $file_name;
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }

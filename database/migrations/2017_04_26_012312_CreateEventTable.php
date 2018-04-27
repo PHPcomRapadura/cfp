@@ -19,6 +19,7 @@ class CreateEventTable extends Migration
             $table->date('datainicial');
             $table->date('datafinal');
             $table->date('datafimdocfp');
+            $table->text('detalhes');
             $table->timestamps();
         });
     }

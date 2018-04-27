@@ -5,8 +5,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Call For Paper</title>
-
+        <title>Call For Papers</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
@@ -46,7 +46,7 @@
             }
 
             .title {
-                font-size: 84px;
+                font-size: 70px;
             }
 
             .links > a {
@@ -79,6 +79,8 @@
         </style>
     </head>
     <body style="background-image: url('img/fundo.png'); background-repeat: no-repeat; background-size: 100% 100%;">
+       <div class="container">
+       
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -98,20 +100,25 @@
                 </div>
                 
                 <div class="links">
+                  <h3>{!! $events->detalhes !!}</h3>
                   <h2>Submeta a sua palestra até o dia {!! $events->present()->datafimdocfp !!}</h2>
                 </div>
                 @endif
                 
 
                 <div class="col-md-12 text-center">
-                  <p class="copyright">Call For Papers | <a id="link-color" href="http://phpcomrapadura.org" target="_blank">Community PHP com Rapadura</a> | Ceará - Brasil</p>
+                    <br>
+                      <p class="copyright">Call For Papers | <a id="link-color" href="http://phpcomrapadura.org" target="_blank">Community PHP com Rapadura</a> | Ceará - Brasil</p>
+                    <br>
                 </div>
-
-                <p style="font-size: 18pt;">
-                    <a href="http://phpeste.net/palestrante.pdf" target="_blank"><strong>Conheça o Kit Palestrante</strong></a>
-                </p>
-
+                <div class="col-md-12 text-center">
+                    <a href='https://app.umbler.com/u/2j3g7r5k'>
+                    <img src='https://static.umbler.com/brand/umbler-badges/umbler-badge-hostedby-dark-bg.png' 
+                    width='20%' alt='Hosted by Umbler'>
+                </a>
+                </div>
             </div>
+        </div>
         </div>
     </body>
 </html>

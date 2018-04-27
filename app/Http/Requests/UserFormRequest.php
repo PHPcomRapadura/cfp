@@ -33,9 +33,7 @@ class UserFormRequest extends FormRequest
             'foto'        => 'image|mimes:jpg,png,jpeg',
             'cidade'      => 'required|max:80',
             'estado'      => 'required|max:60',
-            'biografia'   => 'required|max:250',
-            'aeroporto'   => 'required|max:5',
-            'alimentacao' => 'required',
+            'biografia'   => 'required|max:250'
         ];
     }
 
@@ -52,9 +50,7 @@ class UserFormRequest extends FormRequest
             'email.required'       => 'O campo Email é obrigatório!',
             'cidade.required'      => 'O campo Cidade é obrigatório!',
             'estado.required'      => 'O campo Estado é obrigatório!',
-            'biografia.required'   => 'O campo Biografia é obrigatório!',
-            'aeroporto.required'   => 'O campo Aeroporto é obrigatório!',
-            'alimentacao.required' => 'O campo Alimentação é obrigatório!',
+            'biografia.required'   => 'O campo Biografia é obrigatório!'
         ];
     }
 }

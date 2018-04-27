@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Event;
 use App\Http\Requests\EventFormRequest;
+use App\Talk;
 
 class EventController extends Controller
 {
@@ -62,22 +63,11 @@ class EventController extends Controller
      $request['datafinal'] = \Carbon\Carbon::createFromFormat('d/m/Y', $request['datafinal']);
      $request['datafimdocfp'] = \Carbon\Carbon::createFromFormat('d/m/Y', $request['datafimdocfp']);
 
-         Event::create($request->only('name','datainicial','datafinal','datafimdocfp'));
+         Event::create($request->only('name','datainicial','datafinal','datafimdocfp','detalhes'));
         
         return redirect()
                 ->route('event.create')
                  ->with(['success'=> 'Salvo com sucesso!']);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**
@@ -126,12 +116,21 @@ class EventController extends Controller
     public function destroy($id)
     {
             $event = Event::find($id);
-            
+            $talks = Talk::where('event_id',$id)->get();
+
+            if(count($talks) > 0){
+               
+                return redirect()
+                        ->route('event.index')
+                        ->with(['danger'=> 'Evento com palestras já submetidas!']);
+            }
+
             $event->delete();
-              return redirect()
+
+            return redirect()
                         ->route('event.index')
                         ->with(['success'=> 'Registro excluido com sucesso!']);
         
-        
+         
     }
 }
