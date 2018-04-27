@@ -27,7 +27,8 @@ class User extends Authenticatable
         'biografia',
         'sexo_id',
         'aeroporto',
-        'alimentacao'
+        'alimentacao',
+        'foto'
     ];
 
     /**

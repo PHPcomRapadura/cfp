@@ -28,6 +28,7 @@ class EventFormRequest extends FormRequest
             'datainicial' => 'required',
             'datafinal' => 'required',
             'datafimdocfp' => 'required',
+            'detalhes' => 'required'
         ];
     }
 
@@ -44,6 +45,7 @@ class EventFormRequest extends FormRequest
             'datainicial.required' => 'A data de início do evento é obrigatória!',
             'datafinal.required' => 'A data do fim do evento é obrigatória!',
             'datafimdocfp.required' => 'A data do fim do cfp é obrigatória!',
+            'datafimdocfp.required' => 'Detalhes do evento são obrigatórios!'
         ];
     }
 }

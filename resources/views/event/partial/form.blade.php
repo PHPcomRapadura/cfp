@@ -27,6 +27,13 @@
 						   {!! Form::text('datafimdocfp', null, ['class' => 'form-control' ,'id'=>'dtfimcfp']) !!}
 						  </div>
 						 </div>
+
+						 <div class="col-md-12">
+						  <div class="form-group">
+						   {!! Form::label('detalhes','Detalhes do evento:',array('class' => 'control-label')) !!}
+						   {{ Form::textarea('detalhes', null, ['class' => 'form-control field']) }}
+						  </div>
+						 </div>
 						 
 						 <div class="col-xs-12">
 						  <div class="form-group">
