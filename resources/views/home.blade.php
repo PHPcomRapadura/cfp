@@ -9,13 +9,6 @@
                         <strong>Seja bem-vindo Sr.(a) {{ Auth::user()->apelido }}</strong>
                     </div>
                     <div class="panel-body">
-                        @if(empty(Auth::user()->aeroporto) || empty(Auth::user()->sexo_id) || empty(Auth::user()->alimentacao))
-                            <div class="col-md-12">
-                                <div class="alert alert-warning col-md-8 col-md-offset-2">
-                                    <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Há dados no seu perfil que precisam ser preenchidos! Por favor, <a href="{{ route('user.edit', Auth::user()->id) }}"><u>complete seu cadastro</u></a>.
-                                </div>
-                            </div>
-                        @endif
 
                         <div class="row">
                             @can('talks-all')

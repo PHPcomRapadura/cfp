@@ -10,7 +10,7 @@ class Event extends Model
 {
 	use Presentable;
     
-    protected $fillable = ['id','name','datainicial', 'datafinal', 'datafimdocfp'];
+    protected $fillable = ['id','name','datainicial', 'datafinal', 'datafimdocfp','detalhes'];
 
     protected $presenter = EventPresenter::class;
     
