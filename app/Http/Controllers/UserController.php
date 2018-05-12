@@ -124,14 +124,10 @@ class UserController extends Controller
             return false;
         }
 
-        if ($oldFile && Storage::disk('public')->exists('uploads', $oldFile)) {
-            Storage::disk('public')->delete("uploads/$oldFile");
-        }
-
         $file             = $request->file('foto');
         $extensao         = $file->extension();
         $file_name        = $request->git.'.'.$extensao;
-        $destination_path = $file->storeAs('public/uploads', $file_name);
+        $destination_path = $file->move(public_path('uploads'), $file_name);
 
         if (!$destination_path) {
             return false;
