@@ -80,9 +80,8 @@
                             @can('users-update')
                                 <div class="col-md-4">
                                     <div class="thumbnail text-center">
-                                        @if (Storage::exists('public/uploads/' . Auth::user()->foto))
-                                            <img class="img-responsive img-circle" width="70" src="{{ asset('storage/uploads/' . Auth::user()->foto) }}">
-                                        @endif
+                                            <img class="img-responsive img-circle" width="70" src="{{ asset('uploads/' . Auth::user()->foto) }}">
+                                        
                                         <div class="caption">
                                             <h4><strong>Edite seu perfil</strong></h4>
                                             <p>

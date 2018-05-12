@@ -1,12 +1,11 @@
-	@if (Storage::exists("public/uploads/{$user->foto}"))
+
 		<div class="col-md-12">
 			<div class="col-md-4 col-md-offset-4">
 				<div class="form-group">
-					<img class="img-responsive img-thumbnail" src="{{ asset('storage/uploads/'.$user->foto) }}">
+					<img class="img-responsive img-thumbnail" src="{{ asset('uploads/'.$user->foto) }}">	
 				</div>
 			</div>
 		</div>
-	@endif
 
 	<div class="col-md-8">
 		<div class="form-group">
