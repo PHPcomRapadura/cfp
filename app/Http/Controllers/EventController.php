@@ -20,11 +20,13 @@ class EventController extends Controller
         if (isset($data['dtinicial']) && isset($data['dtfinal'])) {
 
             $dataInicialNotEmpty = !empty($data['dtinicial']);
+
             $dtinicial = ($dataInicialNotEmpty) ? \Carbon\Carbon::createFromFormat('d/m/Y',
                 $data['dtinicial']) : \Carbon\Carbon::now();
 
 
             $events = Event::where('datainicial', '>=', $dtinicial->toDateString());
+
 
             if(!empty($data['dtfinal'])){
                 $dtfinal = \Carbon\Carbon::createFromFormat('d/m/Y', $data['dtfinal']);
@@ -35,9 +37,10 @@ class EventController extends Controller
 
             $events->orderBy('datainicial', 'ASC');
 
-            $events = $events->paginate(2);
+            $events = $events->paginate(10);
 
-            return view('event.list',  compact('events')) ;
+            return view('event.list',  compact('events'))
+                ->with('i', ($request->input('page', 1) - 1) * 10) ;
 
         } else {
 
