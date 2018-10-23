@@ -1,0 +1,65 @@
+version: '3.1'
+services:
+  ensp_drupal:
+    image: drupal
+    volumes:
+      - ./drupal/modules:/var/www/html/modules
+      - ./drupal/profiles:/var/www/html/profiles
+      - ./drupal/sites:/var/www/html/sites
+      - ./drupal/themes:/var/www/html/themes
+    links:
+      - ensp_db:mysql
+    ports:
+      - ${PORT_DRUPAL}:80
+  ensp_site:
+    image: webdevops/apache:latest
+    container_name: ensp_site
+    depends_on:
+      - ensp_php
+    ports:
+      - ${PORT_SAGAS}:80
+    volumes:
+      - .:/var/www/html
+    environment:
+      WEB_PHP_SOCKET: "ensp_php:9000"
+      WEB_DOCUMENT_ROOT: "/var/www/html"
+  ensp_php:
+    build: ./docker/php
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - ensp_db
+    links:
+      - ensp_db
+    environment:
+       XDEBUG_CONFIG: "remote_host=172.17.0.1 remote_enable=1"
+  ensp_php7:
+    container_name: ensp_php7
+    build: ./docker/php7
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - ensp_db
+    links:
+      - ensp_db
+    environment:
+      XDEBUG_CONFIG: "remote_host=172.17.0.1 remote_enable=1"
+  ensp_db:
+    container_name: ensp_db
+    image: mysql:5.5.47
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./docker/mysql/dump:/docker-entrypoint-initdb.d
+      - ./docker/mysql/data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=${DB_NAME}
+      - MYSQL_USER=${DB_USER}
+      - MYSQL_PASSWORD=${DB_PASSWD}
