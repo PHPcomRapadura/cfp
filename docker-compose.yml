@@ -1,0 +1,32 @@
+version: '3.1'
+services:
+  php7:
+    build: ./.docker/php7
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - .:/var/www
+    depends_on:
+      - mysql
+      - composer
+    links:
+      - mysql
+    environment:
+      XDEBUG_CONFIG: "remote_host=172.17.0.1 remote_enable=1"
+  composer:
+    build: ./.docker/composer
+    volumes:
+      - ./:/app
+    command: install --ignore-platform-reqs
+  mysql:
+    image: mysql
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./.volumes/mysql/data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=${DB_NAME}
+      - MYSQL_USER=${DB_USER}
+      - MYSQL_PASSWORD=${DB_PASSWD}
