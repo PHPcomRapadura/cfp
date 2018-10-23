@@ -8,3 +8,5 @@ Homestead.yaml
 .env
 *.phar
 /.volumes
+.project
+.settings
