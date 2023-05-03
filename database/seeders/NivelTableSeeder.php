@@ -1,4 +1,5 @@
 <?php
+namespace Database\Seeders;
 
 use App\Nivel;
 use Illuminate\Support\Collection;

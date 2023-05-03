@@ -8,10 +8,8 @@ class CreatePermissionRole extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
         Schema::create('permission_role', function (Blueprint $table) {
 
@@ -35,10 +33,8 @@ class CreatePermissionRole extends Migration
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
-    public function down()
+    public function down(): void
     {
         Schema::dropIfExists('permission_role');
     }

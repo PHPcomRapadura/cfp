@@ -8,10 +8,8 @@ class CreateRoleUser extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
         //papeis e funções do usuario
         Schema::create('role_user', function (Blueprint $table) {
@@ -33,10 +31,8 @@ class CreateRoleUser extends Migration
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
-    public function down()
+    public function down(): void
     {
         Schema::dropIfExists('role_user');
     }

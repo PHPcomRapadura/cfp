@@ -1,8 +1,10 @@
 <?php
+namespace Database\Seeders;
+
 use App\Permission;
 use App\Permission_role;
-use Illuminate\Support\Collection;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class PermissionsTableSeeder extends Seeder
 {
@@ -18,10 +20,10 @@ class PermissionsTableSeeder extends Seeder
     
     public function run()
     {
-        //Caso queira rodar essa migration novamente , usar o refresh
-//        // Apaga toda as tabelas abaixo
-//        DB::table('permissions')->truncate();
-//        DB::table('permission_role')->truncate();
+       // Caso queira rodar essa migration novamente , usar o refresh
+       // Apaga toda as tabelas abaixo
+    //    DB::table('permissions')->truncate();
+    //    DB::table('permission_role')->truncate();
 
         $this->createPermissions();
         $this->createPermission_role();

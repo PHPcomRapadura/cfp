@@ -10,3 +10,5 @@ Homestead.yaml
 /.volumes
 .project
 .settings
+/laradock
+.composer.lock

@@ -1,8 +1,10 @@
 <?php
+namespace Database\Seeders;
+
 use App\Role;
 use App\Role_User;
-use Illuminate\Support\Collection;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class RolesTableSeeder extends Seeder
 {
@@ -19,9 +21,9 @@ class RolesTableSeeder extends Seeder
 
     public function run()
     {
-        // Apaga toda as tabelas abaixo
-//        DB::table('role_user')->truncate();
-//        DB::table('roles')->truncate();
+       // Apaga toda as tabelas abaixo
+    //    DB::table('role_user')->truncate();
+    //    DB::table('roles')->truncate();
 
         $this->createRoles();
         $this->createRole_user();
