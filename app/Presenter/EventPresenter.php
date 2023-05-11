@@ -6,17 +6,17 @@ class EventPresenter extends Presenter
 {
     public function datainicial()
     {
-        return $this->formatDate($this->entity->datainicial);
+        return date('d/m/Y', strtotime($this->entity->datainicial));
     }
     
     public function datafinal()
     {
-        return $this->formatDate($this->entity->datafinal);
+        return date('d/m/Y', strtotime($this->entity->datafinal));
     }
     
     public function datafimdocfp()
     {
-        return $this->formatDate($this->entity->datafimdocfp);
+        return date('d/m/Y', strtotime($this->entity->datafimdocfp));
     }
     
 }

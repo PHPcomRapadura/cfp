@@ -12,7 +12,7 @@
 
                         <div class="row">
                             @can('talks-all')
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <div class="thumbnail text-center">
                                         <i class="fa fa-comments fa-5x"></i>
                                         <div class="caption">
@@ -28,7 +28,7 @@
                             @endcan
 
                             @can('events-view')
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <div class="thumbnail text-center">
                                         <i class="fa fa-calendar fa-5x"></i>
                                         <div class="caption">
@@ -43,26 +43,11 @@
                                 </div>
                             @endcan
 
-                            @can('users-view')
-                                <div class="col-md-4">
-                                    <div class="thumbnail text-center">
-                                        <i class="fa fa-users fa-5x"></i>
-                                        <div class="caption">
-                                            <h4><strong>Visualizar palestrantes</strong></h4>
-                                            <p>
-                                                <a href="{{ route('user.index') }}" class="btn btn-primary" role="button">
-                                                    <i class="fa fa-sign-in" aria-hidden="true"></i> Acessar
-                                                </a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endcan
                         </div>
 
                         <div class="row">
                             @can('talks-create')
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <div class="thumbnail text-center">
                                         <i class="fa fa-microphone fa-5x"></i>
                                         <div class="caption">
@@ -78,7 +63,7 @@
                             @endcan
 
                             @can('users-update')
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <div class="thumbnail text-center">
                                             <img class="img-responsive img-circle" width="70" src="{{ asset('uploads/' . Auth::user()->foto) }}">
                                         

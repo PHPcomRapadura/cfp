@@ -8,14 +8,16 @@
         <title>Call For Papers</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
 
         <!-- Styles -->
         <style>
             html, body {
                 background-color: #ecf0f1;
-                color: #636b6f;
-                font-family: 'Arial', sans-serif;
+                color: #5B1E00;
+                font-family: 'Lexend', sans-serif;
                 font-weight: 100;
                 height: 100vh;
                 margin: 0;
@@ -70,15 +72,15 @@
                 color: #025c98;
             }
             body {
-                color: #fff;
+                color: #5B1E00;
             }
 
             a {
-                color: #fff !important;
+                color: #5B1E00 !important;
             }
         </style>
     </head>
-    <body style="background-image: url('img/fundo.png'); background-repeat: no-repeat; background-size: 100% 100%;">
+    <body style="background-image: url('img/background-slide1.webp'); background-repeat: no-repeat; background-size: 100% 100%;">
        <div class="container">
        
         <div class="flex-center position-ref full-height">
@@ -87,8 +89,8 @@
                     @if (Auth::check())
                         <a href="{{ url('/home') }}"><strong>Início</strong></a>
                     @else
-                        <a href="{{ url('/login') }}"><strong>Login</strong></a>
-                        <a href="{{ url('/register') }}"><strong>Registre-se</strong></a>
+                        <a style="font-size: 20px;" href="{{ url('/login') }}"><strong>Login</strong></a>
+                        <a style="font-size: 20px;" href="{{ url('/register') }}"><strong>Registre-se</strong></a>
                     @endif
                 </div>
             @endif
@@ -100,15 +102,15 @@
                 </div>
                 
                 <div class="links">
-                  <h3>{!! $events->detalhes !!}</h3>
-                  <h2>Submeta a sua palestra até o dia {!! $events->present()->datafimdocfp !!}</h2>
+                  <p style="font-size: 25px;text-align: justify;">{!! $events->detalhes !!}</p>
+                  <h1><b>Submeta a sua palestra até o dia {!! $events->present()->datafimdocfp !!}</b></h1>
                 </div>
                 @endif
                 
 
                 <div class="col-md-12 text-center">
                     <br>
-                      <p class="copyright">Call For Papers | <a id="link-color" href="http://phpcomrapadura.org" target="_blank">Community PHP com Rapadura</a> | Ceará - Brasil</p>
+                      <p class="copyright">Call For Papers | <a id="link-color" href="http://phpcomrapadura.org" target="_blank">Comunidade PHP com Rapadura</a> | Ceará - Brasil</p>
                     <br>
                 </div>
                 <div class="col-md-12 text-center">

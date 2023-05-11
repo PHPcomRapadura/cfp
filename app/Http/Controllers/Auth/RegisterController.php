@@ -8,8 +8,6 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\File;
 use App\Role_User;
 use Storage;
 
@@ -114,7 +112,7 @@ class RegisterController extends Controller
      */
     protected function upload($data)
     {
-        $file             = Input::file('foto');
+        $file             = $data['foto'];
         $extensao         = $file->extension();
         $file_name        = $data['git'].'.'.$extensao;
         $destination_path = $file->move(public_path('uploads'), $file_name);

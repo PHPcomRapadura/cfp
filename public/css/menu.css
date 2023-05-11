@@ -1,13 +1,13 @@
 #cor-padrao{
-    background-color: #025c98;
-    border-color: #025c98;
+    background-color: #795548 !important;
+    border-color: #795548 !important;
     color: #FFF;
     text-transform: uppercase;
 }
 
 .navbar-default {
-    background-color: #446CB3;
-    border-color: #446CB3;
+    background-color: #795548 !important;
+    border-color: #795548 !important;
 }
 /* title */
 .navbar-default .navbar-brand {

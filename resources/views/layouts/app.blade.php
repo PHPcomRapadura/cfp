@@ -55,9 +55,6 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        @can('users-view')
-                            <li><a href="{{ route('user.index') }}"><strong><i class="fa fa-users" aria-hidden="true"></i> Usuários</a></strong></li>
-                        @endcan
                         @can('events-view')
                             <li><a href="{{ route('event.index') }}"><strong><i class="fa fa-calendar" aria-hidden="true"></i> Eventos</a></strong></li>
                         @endcan
