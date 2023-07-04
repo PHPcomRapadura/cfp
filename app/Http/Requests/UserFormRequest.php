@@ -33,7 +33,7 @@ class UserFormRequest extends FormRequest
             'foto'        => 'image|mimes:jpg,png,jpeg',
             'cidade'      => 'required|max:80',
             'estado'      => 'required|max:60',
-            'biografia'   => 'required|max:250'
+            'biografia'   => 'required|max:1250'
         ];
     }
 

@@ -97,7 +97,7 @@
 	<div class="col-md-12">
 		<div class="form-group">
 			{!! Form::label('biografia','Biografia:',array('class' => 'control-label')) !!}
-			{!! Form::textarea('biografia', null, ['class' => 'form-control','rows' => 5, 'cols' => 200,'maxlength' => 400]) !!}
+			{!! Form::textarea('biografia', null, ['class' => 'form-control','rows' => 5, 'cols' => 200,'maxlength' => 1250]) !!}
 		</div>
 	</div>
 

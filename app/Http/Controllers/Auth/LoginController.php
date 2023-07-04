@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
+use Auth;
+use App\Rules\ReCaptcha;
 
 class LoginController extends Controller
 {
@@ -35,5 +39,49 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware(['guest', 'permissions'], ['except' => 'logout']);
+    }
+
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function login(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+  
+            return redirect()->route('/home');
+        }
+    
+        return redirect("login")->with(['error'=> 'Usuário ou senha inválidos!']);
+    }
+
+     /**
+     * Get a validator for an incoming registration request.
+     *
+     * @param  array  $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+    protected function validator(array $data)
+    {
+        return Validator::make($data, 
+            [
+                'email' => 'required',
+                'password' => 'required',
+                'g-recaptcha-response' => ['required', new ReCaptcha]
+            ],
+
+            ['required' => 'O campo :attribute é obrigatório'],
+
+            [ 
+              'email' => 'Email', 
+              'password' => 'Senha',
+              'g-recaptcha-response' => 'Recaptcha'
+            ]
+        );
     }
 }

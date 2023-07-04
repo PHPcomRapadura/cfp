@@ -2,6 +2,8 @@
 
 @section('content')
 
+<script src='https://www.google.com/recaptcha/api.js'></script>
+
 <div class="container">
 
 <!-- mensagens de error -->
@@ -68,7 +70,7 @@ Registre-se</strong></div>
 
                         <div class="col-md-6">
                             <div class="form-group{{ $errors->has('foto') ? ' has-error' : '' }}">
-                            <label for="foto">Retrato: </label>
+                            <label for="foto">Retrato seu ou uma imagem que se identifique: </label>
                                 <input id="foto" type="file" class="form-control" value="{{ old('foto') }}" title="Tamanho min: 200px e max:400px" name="foto" required="required">
                             </div>
                         </div>
@@ -89,9 +91,18 @@ Registre-se</strong></div>
 
                         <div class="col-md-12">
                           <div class="form-group{{ $errors->has('biografia') ? ' has-error' : '' }}">
-                            <label for="name">Biografia:</label>
-                                <textarea placeholder="Conte-nos mais sobre você :)" class="form-control" name="biografia" id="biografia" cols="10" maxlength="250" rows="4">{{ old('biografia') }}</textarea>
+                            <label for="name">Mini Biografia:</label>
+                                <textarea placeholder="Descreva um pouco sobre você :)" class="form-control" name="biografia" id="biografia" cols="10" maxlength="1250" rows="2">{{ old('biografia') }}</textarea>
                           </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <div class="g-recaptcha" data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY') }}"></div>
+                                @if ($errors->has('g-recaptcha-response'))
+                                <span class="text-danger">{{ $errors->first('g-recaptcha-response') }}</span>
+                                @endif
+                            </div>
                         </div>
 
                         

@@ -10,6 +10,7 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Role_User;
 use Storage;
+use App\Rules\ReCaptcha;
 
 class RegisterController extends Controller
 {
@@ -60,7 +61,8 @@ class RegisterController extends Controller
              'foto' => 'required|image|mimes:jpg,png,jpeg',
              'cidade' => 'required|max:80',
              'estado' => 'required|max:60',
-             'biografia' => 'required|max:250'
+             'biografia' => 'required|max:1250',
+             'g-recaptcha-response' => ['required', new ReCaptcha]
             ],
 
             ['required' => 'O campo :attribute é obrigatório'],
@@ -73,6 +75,7 @@ class RegisterController extends Controller
               'cidade' => 'Cidade',
               'estado' => 'Estado',
               'biografia' => 'biografia',
+              'g-recaptcha-response' => 'Recaptcha'
               ]
         );
     }
