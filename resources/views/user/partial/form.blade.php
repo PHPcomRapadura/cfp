@@ -21,41 +21,27 @@
 		</div>
 	</div>
 
-	<div class="col-md-4">
-		<div class="form-group">
-			{!! Form::label('sexo_id','Sexo:',array('class' => 'control-label')) !!}
-			{!! Form::select('sexo_id', $sex, null, ['class' => 'form-control']) !!}
-		</div>
-	</div>
-
-	<div class="col-md-4">
-		<div class="form-group">
-			{!! Form::label('alimentacao','Alguma restrição alimentícia?:',array('class' => 'control-label')) !!}
-			{!! Form::select('alimentacao', $aliment, null, ['class' => 'form-control']) !!}
-		</div>
-	</div>
-
-	<div class="col-md-4">
-		<div class="form-group">
-			{!! Form::label('aeroporto','Aeroporto (sigla):',array('class' => 'control-label')) !!}
-			{!! Form::text('aeroporto', null, ['class' => 'form-control']) !!}
-		</div>
-	</div>
-
-	<div class="col-md-6">
-		<div class="form-group">
-			{!! Form::label('email','E-mail:',array('class' => 'control-label')) !!}
-			{!! Form::text('email', null, ['class' => 'form-control']) !!}
-		</div>
-	</div>
-
-
 	<div class="col-md-6">
 		<div class="form-group">
 			{!! Form::label('git','Github:',array('class' => 'control-label')) !!}
 			{!! Form::text('git', null, ['class' => 'form-control']) !!}
 		</div>
 	</div>
+
+	<div class="col-md-6">
+		<div class="form-group">
+			{!! Form::label('sexo_id','Sexo:',array('class' => 'control-label')) !!}
+			{!! Form::select('sexo_id', $sex, null, ['class' => 'form-control']) !!}
+		</div>
+	</div>
+
+	<div class="col-md-12">
+		<div class="form-group">
+			{!! Form::label('email','E-mail:',array('class' => 'control-label')) !!}
+			{!! Form::text('email', null, ['class' => 'form-control']) !!}
+		</div>
+	</div>
+
 
 	<div class="col-md-6">
 		<div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">

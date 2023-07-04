@@ -17,13 +17,13 @@ class CreateUsersTable extends Migration
             $table->string('apelido');
             $table->string('email')->unique();
             $table->string('git')->unique();
-            $table->string('foto');
+            $table->string('foto')->nullable();
             $table->string('cidade');
             $table->string('estado');
             $table->text('biografia');
             $table->integer('sexo_id');
-            $table->string('aeroporto',50);
-            $table->string('alimentacao',100);
+            $table->string('aeroporto',50)->nullable();
+            $table->string('alimentacao',100)->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

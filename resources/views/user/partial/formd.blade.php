@@ -28,20 +28,6 @@
 		</div>
 	</div>
 
-	<div class="col-md-4">
-		<div class="form-group">
-			{!! Form::label('alimentacao','Alguma restrição alimentícia?:',array('class' => 'control-label')) !!}
-			{!! Form::select('alimentacao', $aliment, null, ['class' => 'form-control', 'disabled']) !!}
-		</div>
-	</div>
-
-	<div class="col-md-4">
-		<div class="form-group">
-			{!! Form::label('aeroporto','Aeroporto (sigla):',array('class' => 'control-label')) !!}
-			{!! Form::text('aeroporto', null, ['class' => 'form-control', 'readonly']) !!}
-		</div>
-	</div>
-
 	<div class="col-md-6">
 		<div class="form-group">
 			{!! Form::label('email','E-mail:',array('class' => 'control-label')) !!}
@@ -73,7 +59,7 @@
 	<div class="col-md-12">
 		<div class="form-group">
 			{!! Form::label('biografia','Biografia:',array('class' => 'control-label')) !!}
-			{!! Form::textarea('biografia', null, ['class' => 'form-control','rows' => 5, 'cols' => 200,'maxlength' => 400, 'readonly']) !!}
+			{!! Form::textarea('biografia', null, ['class' => 'form-control','rows' => 5, 'cols' => 200,'maxlength' => 1250, 'readonly']) !!}
 		</div>
 	</div>
 
