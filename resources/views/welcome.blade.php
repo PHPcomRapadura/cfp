@@ -18,7 +18,10 @@
     <style>
         html,
         body {
-            background-color: #ecf0f1;
+            background-image: url('img/background-slide1.webp'); 
+            background-repeat: no-repeat; 
+            background-size: 100% 100%;
+            background-color: #eabe52;
             color: #5B1E00;
             font-family: 'Lexend', sans-serif;
             font-weight: 100;
@@ -37,7 +40,7 @@
 
 </head>
 
-<body style="background-image: url('img/background-slide1.webp'); background-repeat: no-repeat; background-size: 100% 100%;">
+<body>
 
     <div class="container">
 

@@ -11,6 +11,11 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
+
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
 <script src="https://use.fontawesome.com/6c531641d9.js"></script>
@@ -22,6 +27,7 @@
         <style>
             html, body {
                 background-color: #bdc3c7;
+                font-family: 'Lexend', sans-serif;
             }
         </style>
 
