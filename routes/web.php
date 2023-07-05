@@ -3,7 +3,7 @@ Auth::routes();
 Route::get('/', 'HomeController@index');
 
 Route::group(['middleware' => ['permissions']], function () {
-    Route::get('/home', 'HomeController@home');
+    Route::get('/home', 'HomeController@home')->name('home');
     Route::resource('/event', 'EventController');
     Route::post('event/search', 'EventController@index')->name('event.search');
 	Route::resource('/talk', 'TalkController');

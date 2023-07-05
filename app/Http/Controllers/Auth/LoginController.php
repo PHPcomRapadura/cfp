@@ -54,7 +54,7 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
   
-            return redirect()->route('/home');
+            return redirect()->route('home');
         }
     
         return redirect("login")->with(['error'=> 'Usuário ou senha inválidos!']);
