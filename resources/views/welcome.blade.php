@@ -70,8 +70,8 @@
                 <h1>{!! $events->name !!}</h1>
             </div>
 
-            <div class="col-12 col-sm-12 col-md-12 text-center mt-4 mb-4">
-                <p style="font-size: 25px;text-align: justify;">{!! $events->detalhes !!}</p>
+            <div class="col-12 col-sm-12 col-md-12 text-center mb-4">
+                <p style="font-size: 20px;text-align: justify; line-height: 25px;">{!! nl2br($events->detalhes) !!}</p>
                 <h1><b>Submeta a sua palestra até o dia {!! $events->present()->datafimdocfp !!}</b></h1>
             </div>
             @endif
