@@ -26,7 +26,7 @@
 @can('talks-all')
 
 	<div class="row">
-		<div class="col-md-10 col-md-offset-1">
+		<div class="col-md-12">
 			<div class="panel panel-danger">
 				<div class="panel-heading" id="cor-padrao">
 					<strong><i class="fa fa-microphone" aria-hidden="true"></i> Gerenciar Talks</strong> 
@@ -47,7 +47,7 @@
 	</div>
 	@if(isset($talks))	
 	<div class="row">
-		<div class="col-md-10 col-md-offset-1">
+		<div class="col-md-12">
 			<div class="panel panel-danger">
 				<div class="panel-heading" id="cor-padrao">
 					<strong><i class="fa fa-list-alt" aria-hidden="true"></i> Listagem de talks enviadas</strong> 
@@ -59,15 +59,21 @@
 
 						<table class="table table-hover table-responsive table-bordered table-striped">
 							<tr class="active">
+								<th>#</th>
 							    <th>Enviada em</th>
 								<th>Palestrante</th>
+								<th>Vulgo</th>
+								<th>Donde vem?</th>
 								<th>Tema</th>
 								<th colspan="2" class="text-center">Visualizar</th>
 							</tr>
 							@foreach ($talks as $tk)
 							<tr>
-								<td>{{ $tk->created_at}}</td>
+								<th scope="row">{{ $loop->iteration }}</th>
+								<td>{{ date('d/m/Y H:i:s', strtotime($tk->created_at))}}</td>
+								<td>{{ $tk->user->name }}</td>
 								<td>{{ $tk->user->apelido }}</td>
+								<td>{{ $tk->user->cidade }} - {{ $tk->user->estado }}</td>
 								<td>{{ $tk->titulo}}</td>
 								
 								<td class="text-center"><a class="btn btn-warning btn-sm"

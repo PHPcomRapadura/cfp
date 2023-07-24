@@ -106,7 +106,9 @@ class TalkController extends Controller
                  ->with('i', ($request->input('page', 1) - 1) * 10);   
         }else{
 
-            return view('talk.listall',compact('events'))
+            $talks = Talk::all();
+
+            return view('talk.listall',compact('talks','events'))
                  ->with('i', ($request->input('page', 1) - 1) * 10);   
         }
     }
